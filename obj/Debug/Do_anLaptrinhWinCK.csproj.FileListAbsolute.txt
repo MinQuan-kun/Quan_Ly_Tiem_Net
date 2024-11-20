@@ -1,0 +1,14 @@
+D:\Visual Code\Do_anLaptrinhWinCK\bin\Debug\Do_anLaptrinhWinCK.exe.config
+D:\Visual Code\Do_anLaptrinhWinCK\bin\Debug\Do_anLaptrinhWinCK.exe
+D:\Visual Code\Do_anLaptrinhWinCK\bin\Debug\Do_anLaptrinhWinCK.pdb
+D:\Visual Code\Do_anLaptrinhWinCK\bin\Debug\Guna.UI2.dll
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.csproj.AssemblyReference.cache
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.Properties.Resources.resources
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.csproj.GenerateResource.cache
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.csproj.CoreCompileInputs.cache
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLap.057D1ED9.Up2Date
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.exe
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.pdb
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\health_management.frmLogin.resources
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.frmKhoiphuctk.resources
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.frmMain.resources
