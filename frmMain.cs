@@ -20,26 +20,34 @@ namespace Do_anLaptrinhWinCK
         {
             InitializeComponent();
             customizeDesign();
-            UpdateButtonStatus();
         }
         public frmMain(string _infor)
         {
             InitializeComponent();
             customizeDesign();
-            infor = _infor;
-            UpdateButtonStatus(); // Cập nhật trạng thái nút
+            infor = _infor; // Gán giá trị thông tin từ frmLogin
+            lblInfor.Text = infor; // Hiển thị thông tin đăng nhập lên label trong frmMain
         }
+
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             lblInfor.Text = infor;
-            UpdateButtonStatus(); // Đảm bảo trạng thái nút đúng khi form tải lên
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             txtDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss ");
+            if (infor != "Bạn chưa đăng nhập!")
+            {
+               
+                
+            }
+            else
+            {
+                
+            }    
         }
 
         private void customizeDesign()
@@ -66,26 +74,6 @@ namespace Do_anLaptrinhWinCK
             else
                 subMenu.Visible = false;
         }
-
-        private void UpdateButtonStatus()
-        {
-            // Cập nhật trạng thái nút dựa trên trạng thái đăng nhập
-            if (infor == "Bạn chưa đăng nhập!")
-            {
-                btnDangnhap.Enabled = true;
-                btnDangnhap.BackColor = Color.LightGreen; // Sáng nút
-                btnDangxuat.Enabled = false;
-                btnDangxuat.BackColor = Color.Gray; // Tối nút
-            }
-            else
-            {
-                btnDangnhap.Enabled = false;
-                btnDangnhap.BackColor = Color.Gray; // Tối nút
-                btnDangxuat.Enabled = true;
-                btnDangxuat.BackColor = Color.LightCoral; // Sáng nút
-            }
-        }
-
         private void btnHethong_Click(object sender, EventArgs e)
         {
             showSubMenu(subpanelHethong);
@@ -95,33 +83,67 @@ namespace Do_anLaptrinhWinCK
         {
             showSubMenu(Subpanel2);
         }
-
-        private void btnDangnhap_Click(object sender, EventArgs e)
+        private void btnDangxuat_Click(object sender, EventArgs e)
         {
-            if (!isLoginFormOpen)
-            {
-                isLoginFormOpen = true;
-                frmLogin frm = new frmLogin();
-                frm.Show();
-                frm.MdiParent = this;
-                frm.StartPosition = FormStartPosition.CenterParent;
+            // Hiển thị thông báo xác nhận
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                frm.FormClosed += (s, args) =>
-                {
-                    isLoginFormOpen = false;
-                    lblInfor.Text = infor; // Cập nhật thông tin sau khi đăng nhập
-                    UpdateButtonStatus(); // Cập nhật trạng thái các nút
-                };
-               
+            if (dialogResult == DialogResult.Yes)
+            {
+                // Đặt lại thông tin đăng nhập
+                infor = "Bạn chưa đăng nhập!";
+                lblInfor.Text = infor;
+
+                // Ẩn frmMain và hiển thị lại frmLogin
+                frmLogin frm = new frmLogin();
+                frm.Show(); // Hiển thị lại frmLogin
+                this.Hide(); // Ẩn frmMain
+
+                // Đảm bảo frmMain sẽ đóng khi người dùng thoát frmLogin
+                frm.FormClosed += (s, args) => this.Close(); // Đóng frmMain khi frmLogin đóng lại
+            }
+        }
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Kiểm tra nếu form chưa đăng xuất, thì ẩn form thay vì đóng
+            if (infor != "Bạn chưa đăng nhập!")
+            {
+                e.Cancel = true; // Hủy hành động đóng form
+                this.Hide(); // Ẩn form thay vì đóng
+            }
+            else
+            {
+                // Nếu chưa đăng nhập, cho phép đóng form (thực hiện hành động mặc định)
+                e.Cancel = false;
             }
         }
 
-        private void btnDangxuat_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            infor = "Bạn chưa đăng nhập!";
-            lblInfor.Text = infor;
-            UpdateButtonStatus(); // Cập nhật trạng thái nút sau khi đăng xuất
-            hideSubMenu();
+            this.Close();
+        }
+
+        private bool isFirstClick = true;  // Biến kiểm tra lần nhấn đầu tiên
+
+        private void btnminisize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnfullsize_Click(object sender, EventArgs e)
+        {
+            if (isFirstClick)
+            {
+                // Phóng to form lên màn hình đầy đủ
+                this.WindowState = FormWindowState.Maximized;
+                isFirstClick = false;  // Cập nhật trạng thái sau khi phóng to
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;  // Đưa form về trạng thái bình thường
+                this.Size = new Size(950, 600);  // Thiết lập kích thước mới là 950x600
+                isFirstClick = true;  // Cập nhật trạng thái trở lại lần nhấn đầu tiên            }
+            }
         }
     }
 }

@@ -24,13 +24,10 @@ namespace Do_anLaptrinhWinCK
         {
             this.Close();
         }
-
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
             SetRoundedCorners(30);
         }
-
         private void SetRoundedCorners(int radius)
         {
             radius = Math.Min(radius, Math.Min(this.Width / 2, this.Height / 2));
@@ -55,7 +52,6 @@ namespace Do_anLaptrinhWinCK
                 isMouseDown = true;
             }
         }
-
         private void frmLogin_MouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseDown)
@@ -65,7 +61,6 @@ namespace Do_anLaptrinhWinCK
                 this.Location = mousePosition;
             }
         }
-
         private void frmLogin_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -73,7 +68,6 @@ namespace Do_anLaptrinhWinCK
                 isMouseDown = false;
             }
         }
-
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string _username = txtUsername.Text;
@@ -96,30 +90,20 @@ namespace Do_anLaptrinhWinCK
             if (_username == "admin" && _password == "123")
             {
                 lblerror.Visible = false;
-                MessageBox.Show($"Xin chào Admin!", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Chuyển đến from Main
-                frmMain adminfrom = new frmMain();
-                frmMain.infor = "xin chào admin";
-                this.Close();
-                //this.Hide();
-                //adminfrom.ShowDialog();
-                //this.Show();
+                this.Hide(); // Ẩn frmLogin
+                frmMain adminFrom = new frmMain("Xin chào Admin"); // Truyền thông tin đăng nhập
+                adminFrom.ShowDialog(); // Hiển thị frmMain
             }
             else if (_username == "user" && _password == "123")
             {
                 lblerror.Visible = false;
-                MessageBox.Show($"Xin chào {_username}!", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Chuyển đến from Main
-                frmMain userFrom = new frmMain();
-                frmMain.infor = "xin chào admin";
-                this.Close();
-                //this.Hide();
-                //userFrom.ShowDialog();
-                //this.Show();
+                this.Hide(); // Ẩn frmLogin
+                frmMain userFrom = new frmMain("Xin chào User"); // Truyền thông tin đăng nhập
+                userFrom.ShowDialog(); // Hiển thị frmMain
             }
             else
             {
-                lblerror.Visible = true;
+                lblerror.Visible = true; // Hiển thị lỗi nếu đăng nhập thất bại
                 return;
             }
         }

@@ -99,5 +99,14 @@
   <ItemGroup>
     <None Include="Resources\Asus ROG Wallpaper 2 [for wallpaper engine] - Roniz %281080p, h264, youtube%29.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize Window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toggle Full Screen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
