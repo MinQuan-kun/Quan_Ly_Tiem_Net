@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace health_management
+namespace Do_anLaptrinhWinCK
 {
     public partial class frmLogin : Form
     {
@@ -99,9 +99,11 @@ namespace health_management
                 MessageBox.Show($"Xin chào Admin!", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Chuyển đến from Main
                 frmMain adminfrom = new frmMain();
-                this.Hide();
-                adminfrom.ShowDialog();
-                this.Show();
+                frmMain.infor = "xin chào admin";
+                this.Close();
+                //this.Hide();
+                //adminfrom.ShowDialog();
+                //this.Show();
             }
             else if (_username == "user" && _password == "123")
             {
@@ -109,42 +111,16 @@ namespace health_management
                 MessageBox.Show($"Xin chào {_username}!", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Chuyển đến from Main
                 frmMain userFrom = new frmMain();
-                this.Hide();
-                userFrom.ShowDialog();
-                this.Show();
+                frmMain.infor = "xin chào admin";
+                this.Close();
+                //this.Hide();
+                //userFrom.ShowDialog();
+                //this.Show();
             }
             else
             {
                 lblerror.Visible = true;
                 return;
-            }
-        }
-        private void linkQuenmk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Bạn muốn khôi phục mật khẩu của mình? Một email khôi phục sẽ được gửi tới bạn.",
-                "Quên mật khẩu",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                //MessageBox.Show("Hệ thống đã gửi email khôi phục đến địa chỉ của bạn.",
-                //    "Thông báo",
-                //    MessageBoxButtons.OK,
-                //    MessageBoxIcon.Information);
-                this.Hide();
-                frmKhoiphuctk recoveryForm = new frmKhoiphuctk();
-                recoveryForm.ShowDialog();
-
-            }
-            else
-            {
-                MessageBox.Show("Bạn đã hủy yêu cầu khôi phục mật khẩu.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
             }
         }
     }
