@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="All Menu\ThucDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Menu\ThucDon.Designer.cs">
+      <DependentUpon>ThucDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="All Menu\ThucDon.resx">
+      <DependentUpon>ThucDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +116,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Toggle Full Screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kawaii Ice Cream.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kawaii Noodle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Potato Chips.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wine Bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rice Bowl.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

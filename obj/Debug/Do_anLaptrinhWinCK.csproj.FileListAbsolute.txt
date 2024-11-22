@@ -11,3 +11,4 @@ D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.exe
 D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.pdb
 D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.frmMain.resources
 D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.frmLogin.resources
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.All_Computer.ThucDon.resources

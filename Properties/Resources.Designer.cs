@@ -83,6 +83,26 @@ namespace Do_anLaptrinhWinCK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Kawaii_Ice_Cream {
+            get {
+                object obj = ResourceManager.GetObject("Kawaii Ice Cream", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Kawaii_Noodle {
+            get {
+                object obj = ResourceManager.GetObject("Kawaii Noodle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Minimize_Window {
             get {
                 object obj = ResourceManager.GetObject("Minimize Window", resourceCulture);
@@ -93,9 +113,39 @@ namespace Do_anLaptrinhWinCK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Potato_Chips {
+            get {
+                object obj = ResourceManager.GetObject("Potato Chips", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rice_Bowl {
+            get {
+                object obj = ResourceManager.GetObject("Rice Bowl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Toggle_Full_Screen {
             get {
                 object obj = ResourceManager.GetObject("Toggle Full Screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wine_Bar {
+            get {
+                object obj = ResourceManager.GetObject("Wine Bar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
