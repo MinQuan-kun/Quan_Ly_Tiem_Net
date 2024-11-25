@@ -1,4 +1,5 @@
 ﻿using Do_anLaptrinhWinCK;
+using Do_anLaptrinhWinCK.All_Computer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,12 @@ namespace Do_anLaptrinhWinCK
     public partial class frmMain : Form
     {
         public static string infor = "Bạn chưa đăng nhập!";
-        private bool isLoginFormOpen = false; // Cờ kiểm soát trạng thái đăng nhập
-
         public frmMain()
         {
             InitializeComponent();
             customizeDesign();
         }
+
         public frmMain(string _infor)
         {
             InitializeComponent();
@@ -29,102 +29,16 @@ namespace Do_anLaptrinhWinCK
             lblInfor.Text = infor; // Hiển thị thông tin đăng nhập lên label trong frmMain
         }
 
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            lblInfor.Text = infor;
+            UpdateLoginState();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             txtDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss ");
-            if (infor != "Bạn chưa đăng nhập!")
-            {
-               
-                
-            }
-            else
-            {
-                
-            }    
         }
-
-        private void customizeDesign()
-        {
-            subpanelHethong.Visible = false;
-            Subpanel2.Visible = false;
-        }
-
-        private void hideSubMenu()
-        {
-            if (subpanelHethong.Visible == true)
-                subpanelHethong.Visible = false;
-            if (Subpanel2.Visible == true)
-                Subpanel2.Visible = false;
-        }
-
-        private void showSubMenu(System.Windows.Forms.Panel subMenu)
-        {
-            if (subMenu.Visible == false)
-            {
-                hideSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
-        }
-        private void btnHethong_Click(object sender, EventArgs e)
-        {
-            showSubMenu(subpanelHethong);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            showSubMenu(Subpanel2);
-        }
-        private void btnDangxuat_Click(object sender, EventArgs e)
-        {
-            // Hiển thị thông báo xác nhận
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                // Đặt lại thông tin đăng nhập
-                infor = "Bạn chưa đăng nhập!";
-                lblInfor.Text = infor;
-
-                // Ẩn frmMain và hiển thị lại frmLogin
-                frmLogin frm = new frmLogin();
-                frm.Show(); // Hiển thị lại frmLogin
-                this.Hide(); // Ẩn frmMain
-
-                // Đảm bảo frmMain sẽ đóng khi người dùng thoát frmLogin
-                frm.FormClosed += (s, args) => this.Close(); // Đóng frmMain khi frmLogin đóng lại
-            }
-        }
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Kiểm tra nếu form chưa đăng xuất, thì ẩn form thay vì đóng
-            if (infor != "Bạn chưa đăng nhập!")
-            {
-                e.Cancel = true; // Hủy hành động đóng form
-                this.Hide(); // Ẩn form thay vì đóng
-            }
-            else
-            {
-                // Nếu chưa đăng nhập, cho phép đóng form (thực hiện hành động mặc định)
-                e.Cancel = false;
-            }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private bool isFirstClick = true;  // Biến kiểm tra lần nhấn đầu tiên
-
         private void btnminisize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -132,17 +46,134 @@ namespace Do_anLaptrinhWinCK
 
         private void btnfullsize_Click(object sender, EventArgs e)
         {
-            if (isFirstClick)
+            if (this.WindowState == FormWindowState.Maximized)
             {
-                // Phóng to form lên màn hình đầy đủ
-                this.WindowState = FormWindowState.Maximized;
-                isFirstClick = false;  // Cập nhật trạng thái sau khi phóng to
+                this.WindowState = FormWindowState.Normal;
+                this.Size = new Size(950, 600);
             }
             else
             {
-                this.WindowState = FormWindowState.Normal;  // Đưa form về trạng thái bình thường
-                this.Size = new Size(950, 600);  // Thiết lập kích thước mới là 950x600
-                isFirstClick = true;  // Cập nhật trạng thái trở lại lần nhấn đầu tiên            }
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void customizeDesign()
+        {
+            subpanelHethong.Visible = false;
+            subpanelDanhmuc.Visible = false;
+            subpanelQuanly.Visible = false;
+            Menu.Visible = false;
+        }
+
+        private void hideSubMenu()
+        {
+            if (subpanelHethong.Visible)
+                subpanelHethong.Visible = false;
+            if (subpanelDanhmuc.Visible)
+                subpanelDanhmuc.Visible = false;
+            if(subpanelQuanly.Visible)
+                subpanelQuanly.Visible = false;
+        }
+        private void showSubMenu(Panel subMenu)
+        {
+            if (!subMenu.Visible)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+        private void UpdateLoginState()
+        {
+            lblInfor.Text = infor;
+            bool isLoggedIn = infor != "Bạn chưa đăng nhập!";
+            btnDangxuat.Enabled = isLoggedIn;
+            Logout.Enabled = isLoggedIn;
+            btnDangNhap.Enabled = !isLoggedIn;
+            Login.Enabled = !isLoggedIn;
+        }
+
+        //Hiện thị subMenu
+        private void btnHethong_Click(object sender, EventArgs e)
+        {
+            showSubMenu(subpanelHethong);
+        }
+        private void btnDanhmuc_Click(object sender, EventArgs e)
+        {
+            showSubMenu(subpanelDanhmuc);
+        }
+        private void btnQuanly_Click(object sender, EventArgs e)
+        {
+            showSubMenu(subpanelQuanly);
+        }
+
+        private void btnDangxuat_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                infor = "Bạn chưa đăng nhập!";
+                UpdateLoginState();
+            }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (infor != "Bạn chưa đăng nhập!")
+            {
+                e.Cancel = true; // Hủy hành động đóng form
+                this.Hide(); // Ẩn form thay vì đóng
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+ 
+
+        private void btnDatmay_Click(object sender, EventArgs e)
+        {
+            Menu.Visible = false;
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Menu.Visible = true;
+            Menu.BringToFront();
+        }
+
+        private void btnDangky_Click(object sender, EventArgs e)
+        {
+            // TODO: Thêm chức năng đăng ký
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            using (frmLogin loginForm = new frmLogin())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    infor = frmLogin.UserInfo; // Nhận thông tin đăng nhập
+                    UpdateLoginState(); // Cập nhật giao diện
+                }
             }
         }
     }

@@ -16,5 +16,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
         {
             InitializeComponent();
         }
+
     }
 }

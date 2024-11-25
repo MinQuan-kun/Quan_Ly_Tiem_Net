@@ -15,6 +15,7 @@ namespace Do_anLaptrinhWinCK
 {
     public partial class frmLogin : Form
     {
+        public static string UserInfo { get; private set; } = "Bạn chưa đăng nhập!"; // Thuộc tính lưu thông tin người dùng
         public frmLogin()
         {
             InitializeComponent();
@@ -73,7 +74,6 @@ namespace Do_anLaptrinhWinCK
             string _username = txtUsername.Text;
             string _password = txtPassword.Text;
 
-            // Kiểm tra thông tin tài khoản
             if (string.IsNullOrWhiteSpace(_username))
             {
                 MessageBox.Show("Vui lòng nhập tên người dùng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -86,25 +86,22 @@ namespace Do_anLaptrinhWinCK
                 return;
             }
 
-            // Giả lập kiểm tra thông tin đăng nhập
+            // Kiểm tra thông tin đăng nhập
             if (_username == "admin" && _password == "123")
             {
-                lblerror.Visible = false;
-                this.Hide(); // Ẩn frmLogin
-                frmMain adminFrom = new frmMain("Xin chào Admin"); // Truyền thông tin đăng nhập
-                adminFrom.ShowDialog(); // Hiển thị frmMain
+                UserInfo = "Xin chào Admin";
+                DialogResult = DialogResult.OK; // Trả về kết quả thành công
+                this.Close();
             }
             else if (_username == "user" && _password == "123")
             {
-                lblerror.Visible = false;
-                this.Hide(); // Ẩn frmLogin
-                frmMain userFrom = new frmMain("Xin chào User"); // Truyền thông tin đăng nhập
-                userFrom.ShowDialog(); // Hiển thị frmMain
+                UserInfo = "Xin chào User";
+                DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
-                lblerror.Visible = true; // Hiển thị lỗi nếu đăng nhập thất bại
-                return;
+                lblerror.Visible = true;
             }
         }
     }
