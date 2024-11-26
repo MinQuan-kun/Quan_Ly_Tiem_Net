@@ -32,98 +32,20 @@
             Guna.UI2.WinForms.Guna2Button btnKem;
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThem = new System.Windows.Forms.Button();
-            this.dvgMenu = new System.Windows.Forms.DataGridView();
-            this.FoodID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuoc = new Guna.UI2.WinForms.Guna2Button();
             this.btnCom = new Guna.UI2.WinForms.Guna2Button();
             this.btnMi = new Guna.UI2.WinForms.Guna2Button();
             this.btnSnack = new Guna.UI2.WinForms.Guna2Button();
+            this.dvgMenu = new System.Windows.Forms.DataGridView();
+            this.FoodID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu = new System.Windows.Forms.Panel();
             btnAll = new Guna.UI2.WinForms.Guna2Button();
             btnKem = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgMenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Controls.Add(btnAll);
-            this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(btnKem);
-            this.panel1.Controls.Add(this.btnNuoc);
-            this.panel1.Controls.Add(this.btnCom);
-            this.panel1.Controls.Add(this.btnMi);
-            this.panel1.Controls.Add(this.btnSnack);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 506);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(753, 58);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnThem
-            // 
-            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnThem.FlatAppearance.BorderSize = 0;
-            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnThem.Location = new System.Drawing.Point(682, 0);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(71, 58);
-            this.btnThem.TabIndex = 23;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = false;
-            // 
-            // dvgMenu
-            // 
-            this.dvgMenu.AllowUserToAddRows = false;
-            this.dvgMenu.AllowUserToDeleteRows = false;
-            this.dvgMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FoodID,
-            this.FoodName,
-            this.Price});
-            this.dvgMenu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dvgMenu.Location = new System.Drawing.Point(421, 0);
-            this.dvgMenu.Name = "dvgMenu";
-            this.dvgMenu.ReadOnly = true;
-            this.dvgMenu.RowHeadersWidth = 51;
-            this.dvgMenu.RowTemplate.Height = 24;
-            this.dvgMenu.Size = new System.Drawing.Size(332, 506);
-            this.dvgMenu.TabIndex = 1;
-            // 
-            // FoodID
-            // 
-            this.FoodID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.FoodID.DataPropertyName = "FoodID";
-            this.FoodID.HeaderText = "Mã món ăn";
-            this.FoodID.MinimumWidth = 6;
-            this.FoodID.Name = "FoodID";
-            this.FoodID.ReadOnly = true;
-            this.FoodID.Width = 104;
-            // 
-            // FoodName
-            // 
-            this.FoodName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FoodName.DataPropertyName = "FoodName";
-            this.FoodName.HeaderText = "Tên món";
-            this.FoodName.MinimumWidth = 6;
-            this.FoodName.Name = "FoodName";
-            this.FoodName.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Đơn giá";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 83;
             // 
             // btnAll
             // 
@@ -168,6 +90,37 @@
             btnKem.Text = "Kem";
             btnKem.TextOffset = new System.Drawing.Point(-5, 10);
             btnKem.Click += new System.EventHandler(this.btnKem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Controls.Add(btnAll);
+            this.panel1.Controls.Add(this.btnThem);
+            this.panel1.Controls.Add(btnKem);
+            this.panel1.Controls.Add(this.btnNuoc);
+            this.panel1.Controls.Add(this.btnCom);
+            this.panel1.Controls.Add(this.btnMi);
+            this.panel1.Controls.Add(this.btnSnack);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 506);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(753, 58);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnThem.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThem.Location = new System.Drawing.Point(682, 0);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(71, 58);
+            this.btnThem.TabIndex = 23;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = false;
             // 
             // btnNuoc
             // 
@@ -249,12 +202,59 @@
             this.btnSnack.TextOffset = new System.Drawing.Point(-5, 10);
             this.btnSnack.Click += new System.EventHandler(this.btnSnack_Click);
             // 
+            // dvgMenu
+            // 
+            this.dvgMenu.AllowUserToAddRows = false;
+            this.dvgMenu.AllowUserToDeleteRows = false;
+            this.dvgMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FoodID,
+            this.FoodName,
+            this.Price});
+            this.dvgMenu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dvgMenu.Location = new System.Drawing.Point(405, 0);
+            this.dvgMenu.Name = "dvgMenu";
+            this.dvgMenu.ReadOnly = true;
+            this.dvgMenu.RowHeadersWidth = 51;
+            this.dvgMenu.RowTemplate.Height = 24;
+            this.dvgMenu.Size = new System.Drawing.Size(348, 506);
+            this.dvgMenu.TabIndex = 1;
+            // 
+            // FoodID
+            // 
+            this.FoodID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.FoodID.DataPropertyName = "FoodID";
+            this.FoodID.HeaderText = "Mã món ăn";
+            this.FoodID.MinimumWidth = 6;
+            this.FoodID.Name = "FoodID";
+            this.FoodID.ReadOnly = true;
+            this.FoodID.Width = 104;
+            // 
+            // FoodName
+            // 
+            this.FoodName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FoodName.DataPropertyName = "FoodName";
+            this.FoodName.HeaderText = "Tên món";
+            this.FoodName.MinimumWidth = 6;
+            this.FoodName.Name = "FoodName";
+            this.FoodName.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Đơn giá";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 83;
+            // 
             // panelMenu
             // 
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(421, 506);
+            this.panelMenu.Size = new System.Drawing.Size(405, 506);
             this.panelMenu.TabIndex = 2;
             // 
             // ThucDon

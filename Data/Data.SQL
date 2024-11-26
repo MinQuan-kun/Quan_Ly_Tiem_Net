@@ -374,10 +374,10 @@ BEGIN
 END;
 -- DROP TRIGGER trg_UpdatePoints
 
---Ảnh lấy từ Resources thế vào chỗ C:user
--- Cập nhật ảnh cho món ăn "Cơm gà"
 DECLARE @ImageData VARBINARY(MAX);
+--Ảnh lấy từ Resources thế vào chỗ C:user
 
+-- Cập nhật ảnh cho món ăn "Cơm gà"
 -- Đọc ảnh từ file vào biến @ImageData
 SELECT @ImageData = BulkColumn
 FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comga.JPG', SINGLE_BLOB) AS img;
@@ -388,8 +388,6 @@ SET Image = @ImageData
 WHERE FoodName = N'Cơm gà';
 
 -- Cập nhật ảnh cho món ăn "Cơm sườn"
-DECLARE @ImageData VARBINARY(MAX);
-
 -- Đọc ảnh từ file vào biến @ImageData
 SELECT @ImageData = BulkColumn
 FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comsuon.PNG', SINGLE_BLOB) AS img;
@@ -400,8 +398,6 @@ SET Image = @ImageData
 WHERE FoodName = N'Cơm sườn';
 
 -- Cập nhật ảnh cho món ăn "Cơm trộn hàn quốc"
-DECLARE @ImageData VARBINARY(MAX);
-
 -- Đọc ảnh từ file vào biến @ImageData
 SELECT @ImageData = BulkColumn
 FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\ComtronHanquoc.JPG', SINGLE_BLOB) AS img;
@@ -412,8 +408,6 @@ SET Image = @ImageData
 WHERE FoodName = N'Cơm trộn hàn quốc';
 
 -- Cập nhật ảnh cho món ăn "Cơm chiên trứng ốp la"
-DECLARE @ImageData VARBINARY(MAX);
-
 -- Đọc ảnh từ file vào biến @ImageData
 SELECT @ImageData = BulkColumn
 FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comchientrungopla.JPG', SINGLE_BLOB) AS img;
@@ -422,3 +416,165 @@ FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comchientrungopla.JPG', SI
 UPDATE Menu
 SET Image = @ImageData
 WHERE FoodName = N'Cơm chiên trứng ốp la';
+
+-- Cập nhật ảnh cho món ăn "Sting"
+DECLARE @ImageData VARBINARY(MAX);
+
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Sting.PNG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Sting';
+
+-- Cập nhật ảnh cho món ăn "Pepsi"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Pepsi.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Pepsi';
+
+-- Cập nhật ảnh cho món ăn "Sprite"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Sprite.PNG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Sprite';
+
+-- Cập nhật ảnh cho món ăn "Coca cola"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Cocacola.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Coca cola';
+
+-- Cập nhật ảnh cho món ăn "Snack khoai tây"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackkhoaitay.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Snack khoai tây';
+
+-- Cập nhật ảnh cho món ăn "Snack ngô"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackngo.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Snack ngô';
+
+-- Cập nhật ảnh cho món ăn "Snack bí đỏ"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackbido.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Snack bí đỏ';
+
+-- Cập nhật ảnh cho món ăn "Snack cua"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackcua.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Snack cua';
+
+-- Cập nhật ảnh cho món ăn "Mì tương đen"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Mituongden.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Mì tương đen';
+
+-- Cập nhật ảnh cho món ăn "Mì ý"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Miy.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Mì ý';
+
+-- Cập nhật ảnh cho món ăn "Mì ly"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Mily.PNG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Mì ly';
+
+-- Cập nhật ảnh cho món ăn "Mì trộn"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Mitron.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Mì trộn';
+
+-- Cập nhật ảnh cho món ăn "Kem vani"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemvani.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Kem vani';
+
+-- Cập nhật ảnh cho món ăn "Kem socola"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemsocola.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Kem socola';
+
+-- Cập nhật ảnh cho món ăn "Kem dâu"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemdau.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Kem dâu';
+
+-- Cập nhật ảnh cho món ăn "Mì trộn"
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemmatcha.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Kem matcha';
