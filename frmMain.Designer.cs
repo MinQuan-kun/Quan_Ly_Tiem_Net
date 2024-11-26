@@ -372,7 +372,7 @@
             this.Login});
             this.toolStrip2.Location = new System.Drawing.Point(6, 9);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(321, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(321, 31);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "Bạn chưa đăng nhập";
             this.toolStrip2.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -381,14 +381,14 @@
             // 
             this.txtDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(111, 24);
+            this.txtDate.Size = new System.Drawing.Size(111, 28);
             this.txtDate.Text = "toolStripLabel1";
             // 
             // lblInfor
             // 
             this.lblInfor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfor.Name = "lblInfor";
-            this.lblInfor.Size = new System.Drawing.Size(149, 24);
+            this.lblInfor.Size = new System.Drawing.Size(149, 28);
             this.lblInfor.Text = "Bạn chưa đăng nhập!";
             // 
             // Logout
@@ -397,7 +397,7 @@
             this.Logout.Image = ((System.Drawing.Image)(resources.GetObject("Logout.Image")));
             this.Logout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(29, 24);
+            this.Logout.Size = new System.Drawing.Size(29, 28);
             this.Logout.Text = "Đăng xuất";
             this.Logout.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
@@ -407,7 +407,7 @@
             this.Login.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Import;
             this.Login.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(29, 24);
+            this.Login.Size = new System.Drawing.Size(29, 28);
             this.Login.Text = "Login";
             this.Login.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -517,6 +517,7 @@
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(804, 664);
             this.Menu.TabIndex = 0;
+            this.Menu.Load += new System.EventHandler(this.Menu_Load);
             // 
             // frmMain
             // 
@@ -574,7 +575,6 @@
         private Guna.UI2.WinForms.Guna2Button btnminisize;
         private System.Windows.Forms.Panel panel3;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private All_Computer.ThucDon Menu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripButton Login;
         private System.Windows.Forms.Button btnDangNhap;
@@ -589,5 +589,6 @@
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel subpanelQuanly;
         private System.Windows.Forms.Button btnDatmay;
+        private All_Computer.ThucDon Menu;
     }
 }

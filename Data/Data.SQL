@@ -8,6 +8,7 @@ CREATE DATABASE QLTiemNet
 -- DROP TABLE Cards
 -- DROP TABLE Status
 -- DROP TABLE Bill
+-- DROP TABLE Register
 Use QLTiemNet
 GO
 CREATE TABLE Users (
@@ -44,10 +45,10 @@ CREATE TABLE Computers (
 CREATE TABLE Menu (
     FoodID INT PRIMARY KEY IDENTITY(1,1),  
     CategoryID INT,
-    Name NVARCHAR(100) NOT NULL,
+    FoodName NVARCHAR(100) NOT NULL,
     Price DECIMAL(10, 2) NOT NULL,
     Quantity INT NOT NULL,
-    Image Image(255),
+    Image Image,
     Notes TEXT
 );
 
@@ -75,7 +76,7 @@ CREATE TABLE Status (
     FOREIGN KEY (CurrentUserID) REFERENCES Users(UserID) ON DELETE SET NULL
 );
 
-CREATE TABLE REGISTER
+CREATE TABLE Register
 (
     ID INT PRIMARY KEY IDENTITY(1, 1),
     FullName NVARCHAR(100) NOT NULL,
@@ -103,8 +104,8 @@ ALTER TABLE Status
 ALTER TABLE Menu
     ADD CONSTRAINT FK_Category FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID);
 
--- Xử lý khóa ngoại cho bảng `REGISTER`
-ALTER TABLE REGISTER
+-- Xử lý khóa ngoại cho bảng `Register`
+ALTER TABLE Register
     ADD CONSTRAINT FK_Register_User FOREIGN KEY (Username) REFERENCES Users(Username);
 
 -- Thêm dữ liệu mẫu vào bảng Category
@@ -117,7 +118,7 @@ VALUES
 (N'Kem');
 
 -- Thêm dữ liệu mẫu vào bảng Menu
-INSERT INTO Menu (CategoryID, Name, Price, Quantity)
+INSERT INTO Menu (CategoryID, FoodName, Price, Quantity)
 VALUES 
 (1, N'Cơm gà', 25000, 50),
 (1, N'Cơm sườn', 25000, 50),
@@ -259,7 +260,7 @@ AS
 BEGIN 
     SELECT *
     FROM Menu
-    WHERE Name = @Name
+    WHERE FoodName = @Name
 END
 -- DROP PROC GetFood;
 
@@ -270,42 +271,46 @@ ON Bill
 AFTER INSERT, UPDATE, DELETE
 AS
 BEGIN
-    -- Kiểm tra nếu là INSERT (khi có hóa đơn mới được tạo)
-    IF EXISTS (SELECT * FROM inserted)
+    SET NOCOUNT ON; -- Bỏ thông báo ảnh hưởng của trigger
+
+    -- Trừ tiền khi thêm hóa đơn mới
+    IF EXISTS (SELECT 1 FROM inserted)
     BEGIN
-        DECLARE @UserID INT, @TotalAmount DECIMAL(10, 2);
-        
-        -- Lấy giá trị từ bảng inserted (hóa đơn mới được tạo)
-        SELECT @UserID = UserID, @TotalAmount = TotalAmount
-        FROM inserted;
-        
-        -- Trừ tiền từ ví của người dùng
         UPDATE Wallet
-        SET Balance = Balance - @TotalAmount
-        WHERE UserID = @UserID AND Stas = N'Đang hoạt động';
+        SET Balance = Balance - i.TotalAmount
+        FROM Wallet w
+        INNER JOIN inserted i ON w.UserID = i.UserID
+        WHERE w.Stas = N'Đang hoạt động';
     END
 
-    -- Kiểm tra nếu là DELETE (khi hóa đơn bị xóa)
-    IF EXISTS (SELECT * FROM deleted)
+    -- Hoàn tiền khi xóa hóa đơn
+    IF EXISTS (SELECT 1 FROM deleted)
     BEGIN
-        DECLARE @UserID INT, @TotalAmount DECIMAL(10, 2);
-        
-        -- Lấy giá trị từ bảng deleted (hóa đơn bị xóa)
-        SELECT @UserID = UserID, @TotalAmount = TotalAmount
-        FROM deleted;
-        
-        -- Hoàn lại tiền vào ví của người dùng khi hóa đơn bị xóa
         UPDATE Wallet
-        SET Balance = Balance + @TotalAmount
-        WHERE UserID = @UserID AND Stas = N'Đang hoạt động';
+        SET Balance = Balance + d.TotalAmount
+        FROM Wallet w
+        INNER JOIN deleted d ON w.UserID = d.UserID
+        WHERE w.Stas = N'Đang hoạt động';
+    END
+
+    -- Cập nhật tiền khi sửa hóa đơn (UPDATE)
+    IF EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
+    BEGIN
+        UPDATE Wallet
+        SET Balance = Balance - i.TotalAmount + d.TotalAmount
+        FROM Wallet w
+        INNER JOIN inserted i ON w.UserID = i.UserID
+        INNER JOIN deleted d ON w.UserID = d.UserID
+        WHERE w.Stas = N'Đang hoạt động';
     END
 END
+GO
 -- DROP TRIGGER Up_Money;
 
 -- Thêm Trigger cho việc đăng ký người dùng
 GO
 CREATE TRIGGER trg_InsertUserAfterRegister
-ON REGISTER
+ON Register
 AFTER INSERT
 AS
 BEGIN
@@ -331,8 +336,8 @@ CREATE PROC RegisterUser
     @WalletID INT = NULL
 AS
 BEGIN
-    -- Chèn người dùng vào bảng REGISTER
-    INSERT INTO REGISTER (FullName, Username, Pass, CardID, Point, WalletID)
+    -- Chèn người dùng vào bảng Register
+    INSERT INTO Register (FullName, Username, Pass, CardID, Point, WalletID)
     VALUES (@FullName, @Username, @Pass, @CardID, @Point, @WalletID);
     
     -- Thực hiện hành động sau khi đăng ký thành công (trigger sẽ tự động thêm người dùng vào bảng Users)
@@ -368,3 +373,52 @@ BEGIN
     END
 END;
 -- DROP TRIGGER trg_UpdatePoints
+
+--Ảnh lấy từ Resources thế vào chỗ C:user
+-- Cập nhật ảnh cho món ăn "Cơm gà"
+DECLARE @ImageData VARBINARY(MAX);
+
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comga.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Cơm gà';
+
+-- Cập nhật ảnh cho món ăn "Cơm sườn"
+DECLARE @ImageData VARBINARY(MAX);
+
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comsuon.PNG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Cơm sườn';
+
+-- Cập nhật ảnh cho món ăn "Cơm trộn hàn quốc"
+DECLARE @ImageData VARBINARY(MAX);
+
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\ComtronHanquoc.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Cơm trộn hàn quốc';
+
+-- Cập nhật ảnh cho món ăn "Cơm chiên trứng ốp la"
+DECLARE @ImageData VARBINARY(MAX);
+
+-- Đọc ảnh từ file vào biến @ImageData
+SELECT @ImageData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comchientrungopla.JPG', SINGLE_BLOB) AS img;
+
+-- Cập nhật ảnh vào bảng Menu
+UPDATE Menu
+SET Image = @ImageData
+WHERE FoodName = N'Cơm chiên trứng ốp la';

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Visual Code\\Do_anLaptrinhWinCK\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -19,12 +19,12 @@
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -47,6 +47,20 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T15:24:43.372Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmMain.cs",
+              "RelativeToolTip": "frmMain.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAuwLgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T11:06:37.946Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -69,14 +83,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmMain.cs",
-              "RelativeDocumentMoniker": "frmMain.cs",
-              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmMain.cs",
-              "RelativeToolTip": "frmMain.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAADwv1gAAAAAAAAAAAAAAA==",
+              "Title": "ThucDon.cs",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Menu\\ThucDon.cs",
+              "RelativeDocumentMoniker": "All Menu\\ThucDon.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Menu\\ThucDon.cs",
+              "RelativeToolTip": "All Menu\\ThucDon.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAwKQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T11:06:37.946Z",
+              "WhenOpened": "2024-11-26T15:20:42.244Z",
               "EditorCaption": ""
             },
             {
@@ -93,32 +107,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ThucDon.cs",
-              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Menu\\ThucDon.cs",
-              "RelativeDocumentMoniker": "All Menu\\ThucDon.cs",
-              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Menu\\ThucDon.cs",
-              "RelativeToolTip": "All Menu\\ThucDon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T11:49:52.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmLogin.cs",
-              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs",
-              "RelativeDocumentMoniker": "frmLogin.cs",
-              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs",
-              "RelativeToolTip": "frmLogin.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAwGkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T08:07:04.735Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "ThucDon.cs [Design]",
               "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Menu\\ThucDon.cs",
@@ -128,6 +116,19 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T11:27:17.074Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs",
+              "RelativeToolTip": "frmLogin.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T08:07:04.735Z",
+              "EditorCaption": ""
             }
           ]
         }

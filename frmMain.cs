@@ -33,6 +33,8 @@ namespace Do_anLaptrinhWinCK
         {
             timer1.Enabled = true;
             UpdateLoginState();
+            Menu.Visible = false;
+            btnMenu.PerformClick();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -142,7 +144,7 @@ namespace Do_anLaptrinhWinCK
 
         private void btnDatmay_Click(object sender, EventArgs e)
         {
-            Menu.Visible = false;
+            
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -175,6 +177,11 @@ namespace Do_anLaptrinhWinCK
                     UpdateLoginState(); // Cập nhật giao diện
                 }
             }
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
