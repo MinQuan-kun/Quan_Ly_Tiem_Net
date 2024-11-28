@@ -63,7 +63,7 @@ namespace Do_anLaptrinhWinCK
         {
             subpanelHethong.Visible = false;
             subpanelDanhmuc.Visible = false;
-            subpanelQuanly.Visible = false;
+            subpanelChucnang.Visible = false;
             Menu.Visible = false;
         }
 
@@ -73,8 +73,8 @@ namespace Do_anLaptrinhWinCK
                 subpanelHethong.Visible = false;
             if (subpanelDanhmuc.Visible)
                 subpanelDanhmuc.Visible = false;
-            if(subpanelQuanly.Visible)
-                subpanelQuanly.Visible = false;
+            if(subpanelChucnang.Visible)
+                subpanelChucnang.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -109,7 +109,7 @@ namespace Do_anLaptrinhWinCK
         }
         private void btnQuanly_Click(object sender, EventArgs e)
         {
-            showSubMenu(subpanelQuanly);
+            showSubMenu(subpanelChucnang);
         }
 
         private void btnDangxuat_Click(object sender, EventArgs e)

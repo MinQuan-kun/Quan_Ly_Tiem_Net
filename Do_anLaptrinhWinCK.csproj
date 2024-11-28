@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="All Account\User.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Account\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
     <Compile Include="All Menu\ThucDon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="All Account\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="All Menu\ThucDon.resx">
       <DependentUpon>ThucDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +163,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Select All.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

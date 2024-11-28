@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLTiemNet" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-6MUPO0FT\MSSQLSERVER01;Initial Catalog=QLTiemNet;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Do_anLaptrinhWinCK.Properties.Settings" SettingsPropertyName="QLTiemNetConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Cards" Member="Cards">
-    <Type Name="Card">
-      <Column Name="CardID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CardType" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="Card_User" Member="Users" ThisKey="CardID" OtherKey="CardID" Type="User" />
-    </Type>
-  </Table>
   <Table Name="dbo.Bill" Member="Bills">
     <Type Name="Bill">
       <Column Name="BillID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -15,6 +7,16 @@
       <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="User_Bill" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cards" Member="Cards">
+    <Type Name="Card">
+      <Column Name="CardID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CardType" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Stas" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="Card_User" Member="Users" ThisKey="CardID" OtherKey="CardID" Type="User" />
     </Type>
   </Table>
   <Table Name="dbo.Category" Member="Categories">
@@ -53,7 +55,6 @@
       <Column Name="Pass" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="CardID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Point" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WalletID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="User_Register" Member="User" ThisKey="Username" OtherKey="Username" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
@@ -78,22 +79,11 @@
       <Column Name="Pass" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="CardID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Point" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="WalletID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="User_Bill" Member="Bills" ThisKey="UserID" OtherKey="UserID" Type="Bill" />
       <Association Name="User_Register" Member="Registers" ThisKey="Username" OtherKey="Username" Type="Register" />
       <Association Name="User_Status" Member="Status" ThisKey="UserID" OtherKey="CurrentUserID" Type="Status" />
       <Association Name="Card_User" Member="Card" ThisKey="CardID" OtherKey="CardID" Type="Card" IsForeignKey="true" />
-      <Association Name="Wallet_User" Member="Wallet" ThisKey="WalletID" OtherKey="WalletID" Type="Wallet" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Wallet" Member="Wallets">
-    <Type Name="Wallet">
-      <Column Name="WalletID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Stas" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Association Name="Wallet_User" Member="Users" ThisKey="WalletID" OtherKey="WalletID" Type="User" />
     </Type>
   </Table>
 </Database>

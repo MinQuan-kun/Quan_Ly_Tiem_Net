@@ -121,34 +121,49 @@
   <data name="Kawaii Noodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Kawaii Noodle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Import" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Wine Bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Wine Bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Rice Bowl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rice Bowl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Kawaii Ice Cream" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Kawaii Ice Cream.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Potato Chips" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Potato Chips.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Toggle Full Screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Toggle Full Screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Asus ROG Wallpaper 2 [for wallpaper engine] - Roniz (1080p, h264, youtube)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Asus ROG Wallpaper 2 [for wallpaper engine] - Roniz (1080p, h264, youtube).gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Rice Bowl" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rice Bowl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minimize Window" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize Window.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close123" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close123.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Remove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Select All" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Select All.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Asus ROG Wallpaper 2 [for wallpaper engine] - Roniz (1080p, h264, youtube)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Asus ROG Wallpaper 2 [for wallpaper engine] - Roniz (1080p, h264, youtube).gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Potato Chips" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Potato Chips.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wine Bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wine Bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Change" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Change.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close123" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close123.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Toggle Full Screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Toggle Full Screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

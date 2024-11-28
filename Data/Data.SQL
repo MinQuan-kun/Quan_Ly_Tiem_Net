@@ -4,13 +4,14 @@ CREATE DATABASE QLTiemNet
 -- DROP TABLE Menu
 -- DROP TABLE Category
 -- DROP TABLE Computers
--- DROP TABLE Wallet
 -- DROP TABLE Cards
 -- DROP TABLE Status
 -- DROP TABLE Bill
 -- DROP TABLE Register
 Use QLTiemNet
 GO
+
+-- Bảng Users
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),  
     FullName NVARCHAR(100) NOT NULL,
@@ -18,30 +19,24 @@ CREATE TABLE Users (
     Pass VARCHAR(255) NOT NULL,
     CardID INT NULL,  
     Point DECIMAL(10, 2) DEFAULT 0.00, 
-    WalletID INT, 
     Notes TEXT
 );
-CREATE TABLE Wallet (
-    WalletID INT PRIMARY KEY IDENTITY(1,1),  
-    UserID INT,
-    Stas NVARCHAR(500) CHECK (Stas IN (N'đang hoạt động', N'Đã khóa')),
-    Balance DECIMAL(10, 2) DEFAULT 0.0
-);
-
+-- Bảng thẻ
 CREATE TABLE Cards (
     CardID INT PRIMARY KEY IDENTITY(1,1),  
     UserID INT,
-    CardType NVARCHAR(500) CHECK (CardType IN (N'VIP', N'Thành viên')) NOT NULL
+    CardType NVARCHAR(500) CHECK (CardType IN (N'VIP', N'Thành viên')) NOT NULL,
+    Stas NVARCHAR(500) CHECK (Stas IN (N'đang hoạt động', N'Đã khóa')),
+    Balance DECIMAL(10, 2) DEFAULT 0.0
 );
-
+-- Bảng máy
 CREATE TABLE Computers (
     ComputerID INT PRIMARY KEY IDENTITY(1,1),  
     ComputerName NVARCHAR(500) NOT NULL UNIQUE,
     Phankhuc NVARCHAR(500) CHECK (Phankhuc IN (N'Gaming', N'Tiêu chuẩn', N'VIP')) NOT NULL,
     Stas NVARCHAR(500) CHECK (Stas IN (N'Online', N'Bảo trì', N'Offline')) NOT NULL
 );
-
-
+-- Bảng menu
 CREATE TABLE Menu (
     FoodID INT PRIMARY KEY IDENTITY(1,1),  
     CategoryID INT,
@@ -51,7 +46,7 @@ CREATE TABLE Menu (
     Image Image,
     Notes TEXT
 );
-
+-- Bảng hóa đơn
 CREATE TABLE Bill (
     BillID INT PRIMARY KEY IDENTITY(1,1),  
     UserID INT NOT NULL,
@@ -59,12 +54,12 @@ CREATE TABLE Bill (
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
 );
-
+-- Bảng thẻ loại
 CREATE TABLE Category (
     CategoryID INT PRIMARY KEY IDENTITY(1,1), 
     CategoryName NVARCHAR(500) UNIQUE
 );
-
+-- Bảng trạng thái
 CREATE TABLE Status (
     StationID INT PRIMARY KEY IDENTITY(1,1),  
     ComputerID INT,
@@ -75,7 +70,7 @@ CREATE TABLE Status (
     Notes TEXT,
     FOREIGN KEY (CurrentUserID) REFERENCES Users(UserID) ON DELETE SET NULL
 );
-
+-- Bảng đăng ký
 CREATE TABLE Register
 (
     ID INT PRIMARY KEY IDENTITY(1, 1),
@@ -83,16 +78,12 @@ CREATE TABLE Register
     Username VARCHAR(50) NOT NULL UNIQUE,
     Pass VARCHAR(255) NOT NULL,
     CardID INT NULL,
-    Point INT DEFAULT 0,
-    WalletID INT,
+    Point INT DEFAULT 0
 )
 
 
 GO
--- Xử lý khóa ngoại cho bảng `Users`
-ALTER TABLE Users
-    ADD CONSTRAINT FK_WalletID FOREIGN KEY (WalletID) REFERENCES Wallet(WalletID);
-
+-- Xử lý khóa ngoại cho bảng `user`
 ALTER TABLE Users
     ADD CONSTRAINT FK_Card FOREIGN KEY (CardID) REFERENCES Cards(CardID);
 
@@ -120,26 +111,26 @@ VALUES
 -- Thêm dữ liệu mẫu vào bảng Menu
 INSERT INTO Menu (CategoryID, FoodName, Price, Quantity)
 VALUES 
-(1, N'Cơm gà', 25000, 50),
-(1, N'Cơm sườn', 25000, 50),
-(1, N'Cơm trộn hàn quốc', 25000, 50),
-(1, N'Cơm chiên trứng ốp la', 25000, 50),
-(2, N'Sting', 15000, 70),
-(2, N'Pepsi', 15000, 70),
-(2, N'Sprite', 15000, 70),
-(2, N'Coca cola', 15000, 70),
-(3, N'Snack khoai tây', 10000, 60),
-(3, N'Snack ngô', 10000, 60),
+(1, N'Cơm gà', 25.000, 50),
+(1, N'Cơm sườn', 25.000, 50),
+(1, N'Cơm trộn hàn quốc', 25.000, 50),
+(1, N'Cơm chiên trứng ốp la', 25.000, 50),
+(2, N'Sting', 15.000, 70),
+(2, N'Pepsi', 15.000, 70),
+(2, N'Sprite', 15.000, 70),
+(2, N'Coca cola', 15.000, 70),
+(3, N'Snack khoai tây', 10.000, 60),
+(3, N'Snack ngô', 10.000, 60),
 (3, N'Snack bí đỏ', 10000, 60),
 (3, N'Snack cua', 10000, 60),
 (4, N'Mì tương đen', 25000, 50),
-(4, N'Mì ý', 25000, 50),
-(4, N'Mì ly', 25000, 50),
-(4, N'Mì trộn', 25000, 50),
-(5, N'Kem vani', 20000, 40),
-(5, N'Kem socola', 20000, 40),
-(5, N'Kem matcha', 20000, 40),
-(5, N'Kem dâu', 20000, 40);
+(4, N'Mì ý', 25.000, 50),
+(4, N'Mì ly', 10.000, 50),
+(4, N'Mì trộn', 25.000, 50),
+(5, N'Kem vani', 20.000, 40),
+(5, N'Kem socola', 20.000, 40),
+(5, N'Kem matcha', 20.000, 40),
+(5, N'Kem dâu', 20.000, 40);
 
 -- Dữ liệu cho bảng Computers
 INSERT INTO Computers (ComputerName, Phankhuc, Stas)
@@ -151,21 +142,6 @@ VALUES
 ('Comp05', N'Tiêu chuẩn', 'Offline'),
 ('Comp06', N'VIP', 'Offline'),
 ('Comp07', N'Gaming', 'Offline');
-
---Trigger cập nhật ví ID
-GO
-CREATE TRIGGER trg_UpdateWalletID
-ON Wallet
-AFTER INSERT
-AS
-BEGIN
-    -- Cập nhật WalletID trong bảng Users
-    UPDATE Users
-    SET WalletID = inserted.WalletID
-    FROM Users
-    INNER JOIN inserted ON Users.UserID = inserted.UserID;
-END;
--- DROP TRIGGER trg_UpdateWalletID;
 
 -- Trigger cập nhật CardID
 GO
@@ -183,7 +159,6 @@ END;
 -- DROP TRIGGER trg_UpdateCardID;
 
 --1
-GO
 INSERT INTO Users(FullName, username, Pass,	Point)
 VALUES
 (N'LmaoLmaoLmao', N'Nhonnn', '1234567', '0'),
@@ -196,28 +171,15 @@ VALUES
 (N'Quản lý', N'Admin', '123','10000')
 
 --2
-GO
-INSERT INTO Cards(UserID, CardType)
+INSERT INTO Cards(UserID, CardType, Stas, Balance)
 VALUES
-('2', N'VIP'),
-('1', N'Thành viên'),
-('4', N'VIP'),
-('3', N'VIP'),
-('6', N'Thành viên'),
-('5', N'VIP'),
-('7', N'Thành viên')
-
---3
-GO
-INSERT INTO Wallet(UserID, Stas, Balance)
-VALUES
-('2', N'Đang hoạt động' ,'200.000'),
-('1', N'Đã khóa', '0'),
-('4', N'Đã khóa', '0'),
-('3', N'Đang hoạt động', '0'),
-('6', N'Đã khóa', '0'),
-('5', N'Đang hoạt động' ,'200.000'),
-('7', N'Đang hoạt động', '200.000')
+('2', N'VIP', N'Đang hoạt động', '200.000'),
+('1', N'Thành viên', N'Đã khóa', '0'),
+('4', N'VIP', N'Đã khóa', '0'),
+('3', N'VIP', N'Đang hoạt động', '200.000'),
+('6', N'Thành viên', N'Đang hoạt động', '200.000'),
+('5', N'VIP',  N'Đã khóa', '0'),
+('7', N'Thành viên', N'Đang hoạt động', '200.000');
 
 --Truy xuất tài khoản
 GO
@@ -276,9 +238,9 @@ BEGIN
     -- Trừ tiền khi thêm hóa đơn mới
     IF EXISTS (SELECT 1 FROM inserted)
     BEGIN
-        UPDATE Wallet
+        UPDATE Cards
         SET Balance = Balance - i.TotalAmount
-        FROM Wallet w
+        FROM Cards w
         INNER JOIN inserted i ON w.UserID = i.UserID
         WHERE w.Stas = N'Đang hoạt động';
     END
@@ -286,9 +248,9 @@ BEGIN
     -- Hoàn tiền khi xóa hóa đơn
     IF EXISTS (SELECT 1 FROM deleted)
     BEGIN
-        UPDATE Wallet
+        UPDATE Cards
         SET Balance = Balance + d.TotalAmount
-        FROM Wallet w
+        FROM Cards w
         INNER JOIN deleted d ON w.UserID = d.UserID
         WHERE w.Stas = N'Đang hoạt động';
     END
@@ -296,9 +258,9 @@ BEGIN
     -- Cập nhật tiền khi sửa hóa đơn (UPDATE)
     IF EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
     BEGIN
-        UPDATE Wallet
+        UPDATE Cards
         SET Balance = Balance - i.TotalAmount + d.TotalAmount
-        FROM Wallet w
+        FROM Cards w
         INNER JOIN inserted i ON w.UserID = i.UserID
         INNER JOIN deleted d ON w.UserID = d.UserID
         WHERE w.Stas = N'Đang hoạt động';
@@ -318,8 +280,8 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM Users WHERE Username = (SELECT Username FROM inserted))
     BEGIN
         -- Chèn người dùng vào bảng Users
-        INSERT INTO Users (FullName, Username, Pass, CardID, Point, WalletID)
-        SELECT FullName, Username, Pass, CardID, Point, WalletID
+        INSERT INTO Users (FullName, Username, Pass, CardID, Point)
+        SELECT FullName, Username, Pass, CardID, Point
         FROM inserted;
     END
 END;
@@ -332,13 +294,12 @@ CREATE PROC RegisterUser
     @Username VARCHAR(50),
     @Pass VARCHAR(255),
     @CardID INT = NULL,
-    @Point INT = 0,
-    @WalletID INT = NULL
+    @Point INT = 0
 AS
 BEGIN
     -- Chèn người dùng vào bảng Register
-    INSERT INTO Register (FullName, Username, Pass, CardID, Point, WalletID)
-    VALUES (@FullName, @Username, @Pass, @CardID, @Point, @WalletID);
+    INSERT INTO Register (FullName, Username, Pass, CardID, Point)
+    VALUES (@FullName, @Username, @Pass, @CardID, @Point);
     
     -- Thực hiện hành động sau khi đăng ký thành công (trigger sẽ tự động thêm người dùng vào bảng Users)
 END;
@@ -347,11 +308,11 @@ END;
 -- Trigger xử lý khi cập nhật điểm và loại thẻ
 GO
 CREATE TRIGGER trg_UpdatePoints
-ON Wallet
+ON Cards
 AFTER UPDATE
 AS
 BEGIN
-    DECLARE @UserID INT, @Balance DECIMAL(10, 2), @Points DECIMAL(10, 2), @CardType NVARCHAR(50);
+    DECLARE @UserID INT, @Balance DECIMAL(10, 2), @Points DECIMAL(10, 2);
 
     -- Lấy thông tin từ bảng inserted
     SELECT @UserID = UserID, @Balance = Balance FROM inserted;
@@ -361,16 +322,8 @@ BEGIN
 
     -- Cập nhật điểm tích lũy trong bảng Users
     UPDATE Users
-    SET Point = @Points
+    SET Point = Point + @Points
     WHERE UserID = @UserID;
-
-    -- Kiểm tra nếu điểm tích lũy vượt quá 1000 thì nâng cấp thẻ người dùng thành 'VIP'
-    IF @Points > 1000
-    BEGIN
-        UPDATE Cards
-        SET CardType = N'VIP'
-        WHERE UserID = @UserID;
-    END
 END;
 -- DROP TRIGGER trg_UpdatePoints
 
@@ -418,8 +371,6 @@ SET Image = @ImageData
 WHERE FoodName = N'Cơm chiên trứng ốp la';
 
 -- Cập nhật ảnh cho món ăn "Sting"
-DECLARE @ImageData VARBINARY(MAX);
-
 -- Đọc ảnh từ file vào biến @ImageData
 SELECT @ImageData = BulkColumn
 FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Sting.PNG', SINGLE_BLOB) AS img;
@@ -569,7 +520,7 @@ UPDATE Menu
 SET Image = @ImageData
 WHERE FoodName = N'Kem dâu';
 
--- Cập nhật ảnh cho món ăn "Mì trộn"
+-- Cập nhật ảnh cho món ăn "Kem matcha"
 -- Đọc ảnh từ file vào biến @ImageData
 SELECT @ImageData = BulkColumn
 FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemmatcha.JPG', SINGLE_BLOB) AS img;

@@ -30,12 +30,12 @@ namespace Do_anLaptrinhWinCK
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCard(Card instance);
-    partial void UpdateCard(Card instance);
-    partial void DeleteCard(Card instance);
     partial void InsertBill(Bill instance);
     partial void UpdateBill(Bill instance);
     partial void DeleteBill(Bill instance);
+    partial void InsertCard(Card instance);
+    partial void UpdateCard(Card instance);
+    partial void DeleteCard(Card instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
@@ -54,9 +54,6 @@ namespace Do_anLaptrinhWinCK
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InsertWallet(Wallet instance);
-    partial void UpdateWallet(Wallet instance);
-    partial void DeleteWallet(Wallet instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -89,19 +86,19 @@ namespace Do_anLaptrinhWinCK
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Card> Cards
-		{
-			get
-			{
-				return this.GetTable<Card>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Bill> Bills
 		{
 			get
 			{
 				return this.GetTable<Bill>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Card> Cards
+		{
+			get
+			{
+				return this.GetTable<Card>();
 			}
 		}
 		
@@ -151,152 +148,6 @@ namespace Do_anLaptrinhWinCK
 			{
 				return this.GetTable<User>();
 			}
-		}
-		
-		public System.Data.Linq.Table<Wallet> Wallets
-		{
-			get
-			{
-				return this.GetTable<Wallet>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cards")]
-	public partial class Card : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CardID;
-		
-		private System.Nullable<int> _UserID;
-		
-		private string _CardType;
-		
-		private EntitySet<User> _Users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCardIDChanging(int value);
-    partial void OnCardIDChanged();
-    partial void OnUserIDChanging(System.Nullable<int> value);
-    partial void OnUserIDChanged();
-    partial void OnCardTypeChanging(string value);
-    partial void OnCardTypeChanged();
-    #endregion
-		
-		public Card()
-		{
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int CardID
-		{
-			get
-			{
-				return this._CardID;
-			}
-			set
-			{
-				if ((this._CardID != value))
-				{
-					this.OnCardIDChanging(value);
-					this.SendPropertyChanging();
-					this._CardID = value;
-					this.SendPropertyChanged("CardID");
-					this.OnCardIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
-		public System.Nullable<int> UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardType", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string CardType
-		{
-			get
-			{
-				return this._CardType;
-			}
-			set
-			{
-				if ((this._CardType != value))
-				{
-					this.OnCardTypeChanging(value);
-					this.SendPropertyChanging();
-					this._CardType = value;
-					this.SendPropertyChanged("CardType");
-					this.OnCardTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Card_User", Storage="_Users", ThisKey="CardID", OtherKey="CardID")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Card = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Card = null;
 		}
 	}
 	
@@ -472,6 +323,192 @@ namespace Do_anLaptrinhWinCK
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cards")]
+	public partial class Card : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CardID;
+		
+		private System.Nullable<int> _UserID;
+		
+		private string _CardType;
+		
+		private string _Stas;
+		
+		private System.Nullable<decimal> _Balance;
+		
+		private EntitySet<User> _Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCardIDChanging(int value);
+    partial void OnCardIDChanged();
+    partial void OnUserIDChanging(System.Nullable<int> value);
+    partial void OnUserIDChanged();
+    partial void OnCardTypeChanging(string value);
+    partial void OnCardTypeChanged();
+    partial void OnStasChanging(string value);
+    partial void OnStasChanged();
+    partial void OnBalanceChanging(System.Nullable<decimal> value);
+    partial void OnBalanceChanged();
+    #endregion
+		
+		public Card()
+		{
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CardID
+		{
+			get
+			{
+				return this._CardID;
+			}
+			set
+			{
+				if ((this._CardID != value))
+				{
+					this.OnCardIDChanging(value);
+					this.SendPropertyChanging();
+					this._CardID = value;
+					this.SendPropertyChanged("CardID");
+					this.OnCardIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
+		public System.Nullable<int> UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardType", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string CardType
+		{
+			get
+			{
+				return this._CardType;
+			}
+			set
+			{
+				if ((this._CardType != value))
+				{
+					this.OnCardTypeChanging(value);
+					this.SendPropertyChanging();
+					this._CardType = value;
+					this.SendPropertyChanged("CardType");
+					this.OnCardTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stas", DbType="NVarChar(500)")]
+		public string Stas
+		{
+			get
+			{
+				return this._Stas;
+			}
+			set
+			{
+				if ((this._Stas != value))
+				{
+					this.OnStasChanging(value);
+					this.SendPropertyChanging();
+					this._Stas = value;
+					this.SendPropertyChanged("Stas");
+					this.OnStasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Balance
+		{
+			get
+			{
+				return this._Balance;
+			}
+			set
+			{
+				if ((this._Balance != value))
+				{
+					this.OnBalanceChanging(value);
+					this.SendPropertyChanging();
+					this._Balance = value;
+					this.SendPropertyChanged("Balance");
+					this.OnBalanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Card_User", Storage="_Users", ThisKey="CardID", OtherKey="CardID")]
+		public EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Card = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Card = null;
 		}
 	}
 	
@@ -1016,8 +1053,6 @@ namespace Do_anLaptrinhWinCK
 		
 		private System.Nullable<int> _Point;
 		
-		private System.Nullable<int> _WalletID;
-		
 		private EntityRef<User> _User;
 		
     #region Extensibility Method Definitions
@@ -1036,8 +1071,6 @@ namespace Do_anLaptrinhWinCK
     partial void OnCardIDChanged();
     partial void OnPointChanging(System.Nullable<int> value);
     partial void OnPointChanged();
-    partial void OnWalletIDChanging(System.Nullable<int> value);
-    partial void OnWalletIDChanged();
     #endregion
 		
 		public Register()
@@ -1166,26 +1199,6 @@ namespace Do_anLaptrinhWinCK
 					this._Point = value;
 					this.SendPropertyChanged("Point");
 					this.OnPointChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WalletID", DbType="Int")]
-		public System.Nullable<int> WalletID
-		{
-			get
-			{
-				return this._WalletID;
-			}
-			set
-			{
-				if ((this._WalletID != value))
-				{
-					this.OnWalletIDChanging(value);
-					this.SendPropertyChanging();
-					this._WalletID = value;
-					this.SendPropertyChanged("WalletID");
-					this.OnWalletIDChanged();
 				}
 			}
 		}
@@ -1551,8 +1564,6 @@ namespace Do_anLaptrinhWinCK
 		
 		private System.Nullable<decimal> _Point;
 		
-		private System.Nullable<int> _WalletID;
-		
 		private string _Notes;
 		
 		private EntitySet<Bill> _Bills;
@@ -1562,8 +1573,6 @@ namespace Do_anLaptrinhWinCK
 		private EntitySet<Status> _Status;
 		
 		private EntityRef<Card> _Card;
-		
-		private EntityRef<Wallet> _Wallet;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1581,8 +1590,6 @@ namespace Do_anLaptrinhWinCK
     partial void OnCardIDChanged();
     partial void OnPointChanging(System.Nullable<decimal> value);
     partial void OnPointChanged();
-    partial void OnWalletIDChanging(System.Nullable<int> value);
-    partial void OnWalletIDChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     #endregion
@@ -1593,7 +1600,6 @@ namespace Do_anLaptrinhWinCK
 			this._Registers = new EntitySet<Register>(new Action<Register>(this.attach_Registers), new Action<Register>(this.detach_Registers));
 			this._Status = new EntitySet<Status>(new Action<Status>(this.attach_Status), new Action<Status>(this.detach_Status));
 			this._Card = default(EntityRef<Card>);
-			this._Wallet = default(EntityRef<Wallet>);
 			OnCreated();
 		}
 		
@@ -1721,30 +1727,6 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WalletID", DbType="Int")]
-		public System.Nullable<int> WalletID
-		{
-			get
-			{
-				return this._WalletID;
-			}
-			set
-			{
-				if ((this._WalletID != value))
-				{
-					if (this._Wallet.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnWalletIDChanging(value);
-					this.SendPropertyChanging();
-					this._WalletID = value;
-					this.SendPropertyChanged("WalletID");
-					this.OnWalletIDChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="Text", UpdateCheck=UpdateCheck.Never)]
 		public string Notes
 		{
@@ -1838,40 +1820,6 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_User", Storage="_Wallet", ThisKey="WalletID", OtherKey="WalletID", IsForeignKey=true)]
-		public Wallet Wallet
-		{
-			get
-			{
-				return this._Wallet.Entity;
-			}
-			set
-			{
-				Wallet previousValue = this._Wallet.Entity;
-				if (((previousValue != value) 
-							|| (this._Wallet.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Wallet.Entity = null;
-						previousValue.Users.Remove(this);
-					}
-					this._Wallet.Entity = value;
-					if ((value != null))
-					{
-						value.Users.Add(this);
-						this._WalletID = value.WalletID;
-					}
-					else
-					{
-						this._WalletID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Wallet");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1926,168 +1874,6 @@ namespace Do_anLaptrinhWinCK
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wallet")]
-	public partial class Wallet : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _WalletID;
-		
-		private System.Nullable<int> _UserID;
-		
-		private string _Stas;
-		
-		private System.Nullable<decimal> _Balance;
-		
-		private EntitySet<User> _Users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnWalletIDChanging(int value);
-    partial void OnWalletIDChanged();
-    partial void OnUserIDChanging(System.Nullable<int> value);
-    partial void OnUserIDChanged();
-    partial void OnStasChanging(string value);
-    partial void OnStasChanged();
-    partial void OnBalanceChanging(System.Nullable<decimal> value);
-    partial void OnBalanceChanged();
-    #endregion
-		
-		public Wallet()
-		{
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WalletID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int WalletID
-		{
-			get
-			{
-				return this._WalletID;
-			}
-			set
-			{
-				if ((this._WalletID != value))
-				{
-					this.OnWalletIDChanging(value);
-					this.SendPropertyChanging();
-					this._WalletID = value;
-					this.SendPropertyChanged("WalletID");
-					this.OnWalletIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
-		public System.Nullable<int> UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stas", DbType="NVarChar(500)")]
-		public string Stas
-		{
-			get
-			{
-				return this._Stas;
-			}
-			set
-			{
-				if ((this._Stas != value))
-				{
-					this.OnStasChanging(value);
-					this.SendPropertyChanging();
-					this._Stas = value;
-					this.SendPropertyChanged("Stas");
-					this.OnStasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Decimal(10,2)")]
-		public System.Nullable<decimal> Balance
-		{
-			get
-			{
-				return this._Balance;
-			}
-			set
-			{
-				if ((this._Balance != value))
-				{
-					this.OnBalanceChanging(value);
-					this.SendPropertyChanging();
-					this._Balance = value;
-					this.SendPropertyChanged("Balance");
-					this.OnBalanceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_User", Storage="_Users", ThisKey="WalletID", OtherKey="WalletID")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wallet = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wallet = null;
 		}
 	}
 }
