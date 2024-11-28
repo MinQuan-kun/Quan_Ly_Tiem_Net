@@ -112,6 +112,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="res.resx">
+      <DependentUpon>res.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="database.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>database.designer.cs</LastGenOutput>
@@ -184,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\miku-hello.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

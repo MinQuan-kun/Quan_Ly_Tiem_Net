@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Do_anLaptrinhWinCK
 {
-    public partial class res : Form
+    public partial class frmDangky : Form
     {
-        public res()
+        public frmDangky()
         {
             InitializeComponent();
         }
