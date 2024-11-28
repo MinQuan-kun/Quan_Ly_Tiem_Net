@@ -112,25 +112,25 @@ VALUES
 INSERT INTO Menu (CategoryID, FoodName, Price, Quantity)
 VALUES 
 (1, N'Cơm gà', 25.000, 50),
-(1, N'Cơm sườn', 25.000, 50),
+(1, N'Cơm sườn', 25000, 50),
 (1, N'Cơm trộn hàn quốc', 25.000, 50),
 (1, N'Cơm chiên trứng ốp la', 25.000, 50),
-(2, N'Sting', 15.000, 70),
-(2, N'Pepsi', 15.000, 70),
-(2, N'Sprite', 15.000, 70),
-(2, N'Coca cola', 15.000, 70),
+(2, N'Sting', 15000, 70),
+(2, N'Pepsi', 15000, 70),
+(2, N'Sprite', 15000, 70),
+(2, N'Coca cola', 15000, 70),
 (3, N'Snack khoai tây', 10.000, 60),
-(3, N'Snack ngô', 10.000, 60),
+(3, N'Snack ngô', 10000, 60),
 (3, N'Snack bí đỏ', 10000, 60),
 (3, N'Snack cua', 10000, 60),
 (4, N'Mì tương đen', 25000, 50),
-(4, N'Mì ý', 25.000, 50),
-(4, N'Mì ly', 10.000, 50),
-(4, N'Mì trộn', 25.000, 50),
-(5, N'Kem vani', 20.000, 40),
-(5, N'Kem socola', 20.000, 40),
-(5, N'Kem matcha', 20.000, 40),
-(5, N'Kem dâu', 20.000, 40);
+(4, N'Mì ý', 25000, 50),
+(4, N'Mì ly', 10000, 50),
+(4, N'Mì trộn', 25000, 50),
+(5, N'Kem vani', 20000, 40),
+(5, N'Kem socola', 20000, 40),
+(5, N'Kem matcha', 20000, 40),
+(5, N'Kem dâu', 20000, 40);
 
 -- Dữ liệu cho bảng Computers
 INSERT INTO Computers (ComputerName, Phankhuc, Stas)

@@ -68,19 +68,27 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 txtTenmon.Text = m.FoodName;
                 txtSoluong.Text = m.Quantity.ToString();
                 txtMamon.Text = m.FoodID.ToString();
-                if (m.Image != null)
+                if (m.Image != null && m.Image.Length > 0)
                 {
-                    byte[] imageData = m.Image.ToArray();
-                    using (MemoryStream ms = new MemoryStream(imageData))
+                    try
                     {
-                        pbFoodImage.Image = Image.FromStream(ms); 
+                        byte[] imageData = m.Image.ToArray();
+                        using (MemoryStream ms = new MemoryStream(imageData))
+                        {
+                            pbFoodImage.Image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        MessageBox.Show($"Lỗi khi tải hình ảnh: {ex.Message}", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        pbFoodImage.Image = null;
                     }
                 }
                 else
                 {
                     pbFoodImage.Image = null;
                 }
-            }    
+            }
         }
         // Hàm mặc định
         private void Default()
@@ -145,21 +153,31 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     SizeMode = PictureBoxSizeMode.Zoom,
                     BorderStyle = BorderStyle.FixedSingle
                 };
-                if (menu.Image != null)
+                if (menu.Image != null && menu.Image.Length > 0)
                 {
-                    using (var ms = new MemoryStream(menu.Image.ToArray()))
+                    try
                     {
-                        pictureBox.Image = Image.FromStream(ms);
+                        using (var ms = new MemoryStream(menu.Image.ToArray()))
+                        {
+                            pictureBox.Image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"Error loading image: {ex.Message}");
+                        pictureBox.BackColor = Color.Gray;
                     }
                 }
                 else
                 {
                     pictureBox.BackColor = Color.Gray;
                 }
+
+                currentFlowPanel.Controls.Add(pictureBox);
                 ToolTip toolTip = new ToolTip();
                 toolTip.SetToolTip(pictureBox, menu.FoodName);
-                currentFlowPanel.Controls.Add(pictureBox);
             }
+            Default();
         }
         // Hàm hiện thị ảnh theo catagory
         private void loadPictureBoxesTheoCategory(int categoryID)
@@ -196,17 +214,27 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     SizeMode = PictureBoxSizeMode.Zoom,
                     BorderStyle = BorderStyle.FixedSingle
                 };
-                if (item.Image != null)
+
+                if (item.Image != null && item.Image.Length > 0)
                 {
-                    using (var ms = new MemoryStream(item.Image.ToArray()))
+                    try
                     {
-                        pictureBox.Image = Image.FromStream(ms);
+                        using (var ms = new MemoryStream(item.Image.ToArray()))
+                        {
+                            pictureBox.Image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"Error loading image: {ex.Message}");
+                        pictureBox.BackColor = Color.Gray;
                     }
                 }
                 else
                 {
                     pictureBox.BackColor = Color.Gray;
                 }
+
                 currentFlowPanel.Controls.Add(pictureBox);
             }
             Default();
@@ -223,6 +251,7 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     menu.FoodName,
                     menu.Image
                 }).ToList();
+
             if (panelMenu.Controls.Count == 0 || !(panelMenu.Controls[0] is FlowLayoutPanel))
             {
                 FlowLayoutPanel flowPanel = new FlowLayoutPanel
@@ -235,8 +264,10 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 };
                 panelMenu.Controls.Add(flowPanel);
             }
+
             FlowLayoutPanel currentFlowPanel = (FlowLayoutPanel)panelMenu.Controls[0];
             currentFlowPanel.Controls.Clear();
+
             foreach (var item in data)
             {
                 PictureBox pictureBox = new PictureBox
@@ -246,21 +277,32 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     SizeMode = PictureBoxSizeMode.Zoom,
                     BorderStyle = BorderStyle.FixedSingle
                 };
-                if (item.Image != null)
+
+                if (item.Image != null && item.Image.Length > 0)
                 {
-                    using (var ms = new MemoryStream(item.Image.ToArray()))
+                    try
                     {
-                        pictureBox.Image = Image.FromStream(ms);
+                        using (var ms = new MemoryStream(item.Image.ToArray()))
+                        {
+                            pictureBox.Image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"Error loading image: {ex.Message}");
+                        pictureBox.BackColor = Color.Gray; 
                     }
                 }
                 else
                 {
                     pictureBox.BackColor = Color.Gray;
                 }
+
                 currentFlowPanel.Controls.Add(pictureBox);
             }
             Default();
         }
+
         // Sử lý sự kiện nhấn nút cơm
         private void btnCom_Click(object sender, EventArgs e)
         {
@@ -418,13 +460,13 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 loadDuLieu();
                 MessageBox.Show("Thêm món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 them = false;
-            } 
-            else if(xoa == true)
+            }
+            else if (xoa == true)
             {
                 int mamon;
-                if (!int.TryParse(txtMaloai.Text, out mamon))
+                if (!int.TryParse(txtMamon.Text, out mamon))
                 {
-                    MessageBox.Show("Mã loại không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Mã món không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMamon.Focus();
                     return;
                 }
@@ -432,18 +474,26 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 Menu m = db.Menus.Where(c => c.FoodID == mamon).SingleOrDefault();
                 if (m == null)
                 {
-                    MessageBox.Show("Mã loại không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMaloai.Focus();
+                    MessageBox.Show("Mã món không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMamon.Focus();
                     return;
                 }
                 else
                 {
                     db.Menus.DeleteOnSubmit(m);
-                    db.SubmitChanges();
-                    loadDuLieu();
-                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    try
+                    {
+                        db.SubmitChanges();
+                        loadDuLieu();
+                        MessageBox.Show("Xóa món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi xóa món: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                xoa = false;
+                xoa = false; 
             }
             else if(tim == true)
             {
