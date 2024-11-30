@@ -73,6 +73,16 @@ namespace Do_anLaptrinhWinCK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_User_Male {
+            get {
+                object obj = ResourceManager.GetObject("Add User Male", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Asus_ROG_Wallpaper_2__for_wallpaper_engine____Roniz__1080p__h264__youtube_ {
             get {
                 object obj = ResourceManager.GetObject("Asus ROG Wallpaper 2 [for wallpaper engine] - Roniz (1080p, h264, youtube)", resourceCulture);
@@ -96,6 +106,16 @@ namespace Do_anLaptrinhWinCK.Properties {
         internal static System.Drawing.Bitmap close123 {
             get {
                 object obj = ResourceManager.GetObject("close123", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ff5c3321a863db98821f6045453aac9b {
+            get {
+                object obj = ResourceManager.GetObject("ff5c3321a863db98821f6045453aac9b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +156,16 @@ namespace Do_anLaptrinhWinCK.Properties {
         internal static System.Drawing.Bitmap miku_hello {
             get {
                 object obj = ResourceManager.GetObject("miku-hello", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap miku_hello_unscreen {
+            get {
+                object obj = ResourceManager.GetObject("miku-hello-unscreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +216,16 @@ namespace Do_anLaptrinhWinCK.Properties {
         internal static System.Drawing.Bitmap Rice_Bowl {
             get {
                 object obj = ResourceManager.GetObject("Rice Bowl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2024_11_29_133411 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2024-11-29 133411", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

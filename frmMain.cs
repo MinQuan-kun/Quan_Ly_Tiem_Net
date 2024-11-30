@@ -25,14 +25,20 @@ namespace Do_anLaptrinhWinCK
         {
             InitializeComponent();
             customizeDesign();
-            infor = _infor; // Gán giá trị thông tin từ frmLogin
-            lblInfor.Text = infor; // Hiển thị thông tin đăng nhập lên label trong frmMain
+            infor = _infor;
+            lblInfor.Text = infor;
+        }
+        private void Default()
+        {
+            btnDanhmuc.Enabled = false;
+            btnChucnang.Enabled = false;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             UpdateLoginState();
+            Default();
             Menu.Visible = false;
             btnMenu.PerformClick();
         }
@@ -96,7 +102,46 @@ namespace Do_anLaptrinhWinCK
             Logout.Enabled = isLoggedIn;
             btnDangNhap.Enabled = !isLoggedIn;
             Login.Enabled = !isLoggedIn;
+            btnDangky.Enabled = !isLoggedIn;
+            register.Enabled = !isLoggedIn;
+
+            if (isLoggedIn)
+            {
+                // Lấy username từ chuỗi infor
+                string username = infor.Split(':').Last().Trim();
+                using (databaseDataContext db = new databaseDataContext())
+                {
+                    // Tìm người dùng trong cơ sở dữ liệu
+                    User user = db.Users.SingleOrDefault(p => p.Username == username);
+                    if (user != null)
+                    {
+                        if (user.Role == "Admin")
+                        {
+                            btnChucnang.Enabled = true;
+                            btnDanhmuc.Enabled = true;
+                        }
+                        else if (user.Role == "Nhân viên")
+                        {
+                            btnChucnang.Enabled = true;
+                            btnDanhmuc.Enabled = true;
+                            btnTaikhoan.Enabled = false;
+                        }
+                        else
+                        {
+                            btnChucnang.Enabled = true;
+                            btnTaikhoan.Visible = false;
+                            btnDanhmuc.Enabled = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                btnChucnang.Enabled = false;
+                btnDanhmuc.Enabled = false;
+            }
         }
+
 
         //Hiện thị subMenu
         private void btnHethong_Click(object sender, EventArgs e)
@@ -107,7 +152,7 @@ namespace Do_anLaptrinhWinCK
         {
             showSubMenu(subpanelDanhmuc);
         }
-        private void btnQuanly_Click(object sender, EventArgs e)
+        private void btnChucnang_Click(object sender, EventArgs e)
         {
             showSubMenu(subpanelChucnang);
         }
@@ -155,7 +200,9 @@ namespace Do_anLaptrinhWinCK
 
         private void btnDangky_Click(object sender, EventArgs e)
         {
-            // TODO: Thêm chức năng đăng ký
+            this.Hide();
+            frmDangky frmDangky = new frmDangky();
+            frmDangky.ShowDialog();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -171,10 +218,10 @@ namespace Do_anLaptrinhWinCK
         {
             using (frmLogin loginForm = new frmLogin())
             {
+                loginForm.Owner = this; // Gắn Owner là form hiện tại
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
-                    infor = frmLogin.UserInfo; // Nhận thông tin đăng nhập
-                    UpdateLoginState(); // Cập nhật giao diện
+                    UpdateLoginState(); // Cập nhật trạng thái giao diện
                 }
             }
         }

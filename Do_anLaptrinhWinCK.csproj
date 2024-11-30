@@ -191,5 +191,17 @@
   <ItemGroup>
     <None Include="Resources\miku-hello.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ff5c3321a863db98821f6045453aac9b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\miku-hello-unscreen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2024-11-29 133411.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add User Male.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

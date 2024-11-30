@@ -107,6 +107,12 @@ namespace Do_anLaptrinhWinCK.All_Computer
             txtTenmon.Text = null;
             txtMaloai.Text = null;
             pbFoodImage.Image = null;
+            // mặc định các trạng thái cờ bằng false
+            them = false;
+            xoa = false;
+            tim = false;
+            sua = false;
+            inds = false;
         }
         // Hàm hiện thị dữ liệu theo Category
         private void loadDuLieuTheoCategory(int categoryID)
@@ -459,7 +465,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 db.SubmitChanges();
                 loadDuLieu();
                 MessageBox.Show("Thêm món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                them = false;
             }
             else if (xoa == true)
             {
@@ -493,7 +498,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                         MessageBox.Show($"Lỗi khi xóa món: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                xoa = false; 
             }
             else if(tim == true)
             {
@@ -542,7 +546,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 {
                     MessageBox.Show("Không tìm thấy kết quả!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                tim = false;
             }
             else if (sua == true)
             {
@@ -616,11 +619,10 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 db.SubmitChanges();
                 loadDuLieu();
                 MessageBox.Show("Cập nhật thông tin món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                sua = false;
             }
             else if(inds == true)
             {
-                inds = false;
+                // Phần code
             } 
         }
         // Sử lý sự kiện nhấn vào thêm ảnh

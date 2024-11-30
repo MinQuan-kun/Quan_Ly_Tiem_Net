@@ -7,9 +7,11 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace Do_anLaptrinhWinCK
 {
@@ -73,36 +75,67 @@ namespace Do_anLaptrinhWinCK
         {
             string _username = txtUsername.Text;
             string _password = txtPassword.Text;
-
-            if (string.IsNullOrWhiteSpace(_username))
+            if( _username == "" && _password == "")
+            {
+                MessageBox.Show("Vui lòng điền thông tin!", "Thông báo", MessageBoxButtons.OK);
+            }    
+            else if (_username == "")
             {
                 MessageBox.Show("Vui lòng nhập tên người dùng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            if (string.IsNullOrWhiteSpace(_password))
+            else if (_password == "")
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Kiểm tra thông tin đăng nhập
-            if (_username == "admin" && _password == "123")
-            {
-                UserInfo = "Xin chào Admin";
-                DialogResult = DialogResult.OK; // Trả về kết quả thành công
-                this.Close();
-            }
-            else if (_username == "user" && _password == "123")
-            {
-                UserInfo = "Xin chào User";
-                DialogResult = DialogResult.OK;
-                this.Close();
-            }
             else
             {
-                lblerror.Visible = true;
+                databaseDataContext db = new databaseDataContext();
+                User user = db.Users.SingleOrDefault(p => p.Username == _username);
+                if (user != null)
+                {
+                    // Kiểm tra mật khẩu đang lưu trong database
+                    MD5 md5 = MD5.Create();
+                    byte[] inputBytes = Encoding.ASCII.GetBytes(_password + user.OTP);
+                    byte[] hashBytes = md5.ComputeHash(inputBytes);
+                    if(user.Password == hashBytes)
+                    {
+                        if(user.Role == "Admin")
+                        {
+                            MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
+                            frmMain.infor = $"Admin: {user.Username}";
+                        }
+                        else if (user.Role == "Nhân viên")
+                        {
+                            MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
+                            frmMain.infor = $"Nhân viên: {user.Username}";
+                        }
+                        else if(user.Role == "Người dùng")
+                        {
+                            MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
+                            frmMain.infor = $"Người dùng: {user.Username}";
+                        }
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        lblerror.Visible = true;
+                        txtPassword.Focus();
+                    }    
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin không tồn tại!", "Thông báo", MessageBoxButtons.OK);
+                    txtUsername.Focus();
+                }    
             }
+        }
+
+        private void LinkQuenmk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

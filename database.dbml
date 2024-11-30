@@ -47,17 +47,6 @@
       <Association Name="Category_Menu" Member="Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Register" Member="Registers">
-    <Type Name="Register">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Pass" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="CardID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Point" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="User_Register" Member="User" ThisKey="Username" OtherKey="Username" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Status" Member="Status">
     <Type Name="Status">
       <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -74,14 +63,18 @@
   <Table Name="dbo.Users" Member="Users">
     <Type Name="User">
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Pass" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OTP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OTPDatesend" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OTPDatecreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="CardID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Point" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="Notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Active" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DataActive" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="User_Bill" Member="Bills" ThisKey="UserID" OtherKey="UserID" Type="Bill" />
-      <Association Name="User_Register" Member="Registers" ThisKey="Username" OtherKey="Username" Type="Register" />
       <Association Name="User_Status" Member="Status" ThisKey="UserID" OtherKey="CurrentUserID" Type="Status" />
       <Association Name="Card_User" Member="Card" ThisKey="CardID" OtherKey="CardID" Type="Card" IsForeignKey="true" />
     </Type>

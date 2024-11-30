@@ -16,7 +16,7 @@ namespace Do_anLaptrinhWinCK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangky());
+            Application.Run(new frmMain());
         }
     }
 }

@@ -34,6 +34,7 @@
             this.btnHethong = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.subpanelHethong = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDangxuat = new System.Windows.Forms.Button();
@@ -45,33 +46,34 @@
             this.btnTaikhoan = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.subpanelChucnang = new System.Windows.Forms.Panel();
+            this.btnDangkythe = new System.Windows.Forms.Button();
             this.btnDatmay = new System.Windows.Forms.Button();
             this.btnChucnang = new System.Windows.Forms.Button();
             this.btnDanhmuc = new System.Windows.Forms.Button();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.txtDate = new System.Windows.Forms.ToolStripLabel();
             this.lblInfor = new System.Windows.Forms.ToolStripLabel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnminisize = new Guna.UI2.WinForms.Guna2Button();
-            this.btnfullsize = new Guna.UI2.WinForms.Guna2Button();
             this.Logout = new System.Windows.Forms.ToolStripButton();
             this.Login = new System.Windows.Forms.ToolStripButton();
+            this.register = new System.Windows.Forms.ToolStripButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnminisize = new Guna.UI2.WinForms.Guna2Button();
+            this.btnfullsize = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.Menu = new Do_anLaptrinhWinCK.All_Computer.ThucDon();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.subpanelHethong.SuspendLayout();
             this.subpanelDanhmuc.SuspendLayout();
             this.panel1.SuspendLayout();
             this.subpanelChucnang.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -114,6 +116,17 @@
             this.label2.Size = new System.Drawing.Size(159, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Hệ thống quản lý tiệm net";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(246, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // subpanelHethong
             // 
@@ -274,12 +287,29 @@
             // 
             // subpanelChucnang
             // 
+            this.subpanelChucnang.Controls.Add(this.btnDangkythe);
             this.subpanelChucnang.Controls.Add(this.btnDatmay);
             this.subpanelChucnang.Dock = System.Windows.Forms.DockStyle.Top;
             this.subpanelChucnang.Location = new System.Drawing.Point(0, 529);
             this.subpanelChucnang.Name = "subpanelChucnang";
             this.subpanelChucnang.Size = new System.Drawing.Size(246, 85);
             this.subpanelChucnang.TabIndex = 8;
+            // 
+            // btnDangkythe
+            // 
+            this.btnDangkythe.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDangkythe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDangkythe.FlatAppearance.BorderSize = 0;
+            this.btnDangkythe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangkythe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDangkythe.Location = new System.Drawing.Point(0, 43);
+            this.btnDangkythe.Name = "btnDangkythe";
+            this.btnDangkythe.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnDangkythe.Size = new System.Drawing.Size(246, 43);
+            this.btnDangkythe.TabIndex = 12;
+            this.btnDangkythe.Text = "Đăng ký thẻ";
+            this.btnDangkythe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangkythe.UseVisualStyleBackColor = false;
             // 
             // btnDatmay
             // 
@@ -311,7 +341,7 @@
             this.btnChucnang.Text = "Chức năng";
             this.btnChucnang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChucnang.UseVisualStyleBackColor = false;
-            this.btnChucnang.Click += new System.EventHandler(this.btnQuanly_Click);
+            this.btnChucnang.Click += new System.EventHandler(this.btnChucnang_Click);
             // 
             // btnDanhmuc
             // 
@@ -339,13 +369,13 @@
             this.txtDate,
             this.lblInfor,
             this.Logout,
-            this.Login});
+            this.Login,
+            this.register});
             this.toolStrip2.Location = new System.Drawing.Point(6, 9);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(321, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(350, 27);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "Bạn chưa đăng nhập";
-            this.toolStrip2.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // txtDate
             // 
@@ -361,6 +391,36 @@
             this.lblInfor.Size = new System.Drawing.Size(149, 24);
             this.lblInfor.Text = "Bạn chưa đăng nhập!";
             // 
+            // Logout
+            // 
+            this.Logout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Logout.Image = ((System.Drawing.Image)(resources.GetObject("Logout.Image")));
+            this.Logout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(29, 24);
+            this.Logout.Text = "Đăng xuất";
+            this.Logout.Click += new System.EventHandler(this.btnDangxuat_Click);
+            // 
+            // Login
+            // 
+            this.Login.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Login.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Import;
+            this.Login.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(29, 24);
+            this.Login.Text = "Login";
+            this.Login.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
+            // register
+            // 
+            this.register.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.register.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Add_User_Male;
+            this.register.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.register.Name = "register";
+            this.register.Size = new System.Drawing.Size(29, 24);
+            this.register.Text = "register";
+            this.register.Click += new System.EventHandler(this.btnDangky_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -375,19 +435,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(804, 36);
             this.panel4.TabIndex = 13;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.Menu);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(246, 36);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(804, 664);
-            this.panel3.TabIndex = 14;
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.TargetControl = this.panel3;
             // 
             // btnminisize
             // 
@@ -427,26 +474,6 @@
             this.btnfullsize.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnfullsize.Click += new System.EventHandler(this.btnfullsize_Click);
             // 
-            // Logout
-            // 
-            this.Logout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Logout.Image = ((System.Drawing.Image)(resources.GetObject("Logout.Image")));
-            this.Logout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(29, 24);
-            this.Logout.Text = "Đăng xuất";
-            this.Logout.Click += new System.EventHandler(this.btnDangxuat_Click);
-            // 
-            // Login
-            // 
-            this.Login.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Login.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Import;
-            this.Login.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(29, 24);
-            this.Login.Text = "Login";
-            this.Login.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -477,16 +504,14 @@
             this.btnClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pictureBox1
+            // panel3
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.panel3.Controls.Add(this.Menu);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(246, 36);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(804, 664);
+            this.panel3.TabIndex = 14;
             // 
             // Menu
             // 
@@ -499,6 +524,10 @@
             this.Menu.Size = new System.Drawing.Size(804, 664);
             this.Menu.TabIndex = 0;
             this.Menu.Load += new System.EventHandler(this.Menu_Load);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this.panel3;
             // 
             // frmMain
             // 
@@ -521,6 +550,7 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.subpanelHethong.ResumeLayout(false);
             this.subpanelDanhmuc.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -529,10 +559,9 @@
             this.toolStrip2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -570,5 +599,7 @@
         private System.Windows.Forms.Panel subpanelChucnang;
         private All_Computer.ThucDon Menu;
         private System.Windows.Forms.Button btnDatmay;
+        private System.Windows.Forms.ToolStripButton register;
+        private System.Windows.Forms.Button btnDangkythe;
     }
 }

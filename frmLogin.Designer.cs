@@ -45,6 +45,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.LinkQuenmk = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -123,6 +124,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.LinkQuenmk);
             this.panel2.Controls.Add(this.lblerror);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -145,7 +147,7 @@
             this.lblerror.AutoSize = true;
             this.lblerror.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblerror.ForeColor = System.Drawing.Color.Red;
-            this.lblerror.Location = new System.Drawing.Point(62, 263);
+            this.lblerror.Location = new System.Drawing.Point(62, 273);
             this.lblerror.Name = "lblerror";
             this.lblerror.Size = new System.Drawing.Size(216, 17);
             this.lblerror.TabIndex = 1;
@@ -215,7 +217,7 @@
             this.btnDangNhap.BackColor = System.Drawing.Color.Black;
             this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.Color.Transparent;
-            this.btnDangNhap.Location = new System.Drawing.Point(73, 217);
+            this.btnDangNhap.Location = new System.Drawing.Point(74, 229);
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(160, 30);
@@ -253,6 +255,17 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            // 
+            // LinkQuenmk
+            // 
+            this.LinkQuenmk.AutoSize = true;
+            this.LinkQuenmk.Location = new System.Drawing.Point(164, 207);
+            this.LinkQuenmk.Name = "LinkQuenmk";
+            this.LinkQuenmk.Size = new System.Drawing.Size(96, 17);
+            this.LinkQuenmk.TabIndex = 7;
+            this.LinkQuenmk.TabStop = true;
+            this.LinkQuenmk.Text = "Quên mật khẩu";
+            this.LinkQuenmk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkQuenmk_LinkClicked);
             // 
             // frmLogin
             // 
@@ -302,6 +315,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.LinkLabel LinkQuenmk;
     }
 }
 

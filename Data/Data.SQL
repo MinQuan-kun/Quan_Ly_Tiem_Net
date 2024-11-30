@@ -7,19 +7,23 @@ CREATE DATABASE QLTiemNet
 -- DROP TABLE Cards
 -- DROP TABLE Status
 -- DROP TABLE Bill
--- DROP TABLE Register
 Use QLTiemNet
 GO
 
 -- Bảng Users
 CREATE TABLE Users (
-    UserID INT PRIMARY KEY IDENTITY(1,1),  
-    FullName NVARCHAR(100) NOT NULL,
+    UserID INT PRIMARY KEY IDENTITY(1,1),
     Username VARCHAR(50) NOT NULL UNIQUE,
-    Pass VARCHAR(255) NOT NULL,
-    CardID INT NULL,  
+    Password VARBINARY(MAX) NOT NULL,
+    Email VARCHAR(50),
+    OTP VARCHAR(50),
+    OTPDatesend DATETIME,
+    OTPDatecreate DATETIME,
+    CardID INT,
     Point DECIMAL(10, 2) DEFAULT 0.00, 
-    Notes TEXT
+    Role NVARCHAR(500) CHECK (Role IN (N'Admin', N'Nhân viên', N'Người dùng')),
+    Active NVARCHAR(500) CHECK (Active IN (N'đang hoạt động', N'Đã khóa')),
+    DataActive DATETIME
 );
 -- Bảng thẻ
 CREATE TABLE Cards (
@@ -70,17 +74,6 @@ CREATE TABLE Status (
     Notes TEXT,
     FOREIGN KEY (CurrentUserID) REFERENCES Users(UserID) ON DELETE SET NULL
 );
--- Bảng đăng ký
-CREATE TABLE Register
-(
-    ID INT PRIMARY KEY IDENTITY(1, 1),
-    FullName NVARCHAR(100) NOT NULL,
-    Username VARCHAR(50) NOT NULL UNIQUE,
-    Pass VARCHAR(255) NOT NULL,
-    CardID INT NULL,
-    Point INT DEFAULT 0
-)
-
 
 GO
 -- Xử lý khóa ngoại cho bảng `user`
@@ -95,9 +88,6 @@ ALTER TABLE Status
 ALTER TABLE Menu
     ADD CONSTRAINT FK_Category FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID);
 
--- Xử lý khóa ngoại cho bảng `Register`
-ALTER TABLE Register
-    ADD CONSTRAINT FK_Register_User FOREIGN KEY (Username) REFERENCES Users(Username);
 
 -- Thêm dữ liệu mẫu vào bảng Category
 INSERT INTO Category (CategoryName)
@@ -133,15 +123,15 @@ VALUES
 (5, N'Kem dâu', 20000, 40);
 
 -- Dữ liệu cho bảng Computers
-INSERT INTO Computers (ComputerName, Phankhuc, Stas)
-VALUES
-('Comp01', N'VIP', 'Offline'),
-('Comp02', N'VIP', 'Offline'),
-('Comp03', N'VIP', 'Offline'),
-('Comp04', N'Gaming', 'Offline'),
-('Comp05', N'Tiêu chuẩn', 'Offline'),
-('Comp06', N'VIP', 'Offline'),
-('Comp07', N'Gaming', 'Offline');
+-- INSERT INTO Computers (ComputerName, Phankhuc, Stas)
+-- VALUES
+-- ('Comp01', N'VIP', 'Offline'),
+-- ('Comp02', N'VIP', 'Offline'),
+-- ('Comp03', N'VIP', 'Offline'),
+-- ('Comp04', N'Gaming', 'Offline'),
+-- ('Comp05', N'Tiêu chuẩn', 'Offline'),
+-- ('Comp06', N'VIP', 'Offline'),
+-- ('Comp07', N'Gaming', 'Offline');
 
 -- Trigger cập nhật CardID
 GO
@@ -159,27 +149,27 @@ END;
 -- DROP TRIGGER trg_UpdateCardID;
 
 --1
-INSERT INTO Users(FullName, username, Pass,	Point)
-VALUES
-(N'LmaoLmaoLmao', N'Nhonnn', '1234567', '0'),
-(N'Bình 2 hòn', N'binhdz', '1234567', '1000'),
-(N'Tín succc', N'tingay', '1234567', '1000'),
-(N'Phương zũ', N'Cuctavang', '1234567', '1000'),
-(N'Tỷ Phú', N'ITBOY', '1234567', '1000'),
-(N'Nhờn', N'Lmao', '1234567', '0'),
-(N'Dương404', N'Duongg', '1234567', '0'),
-(N'Quản lý', N'Admin', '123','10000')
+-- INSERT INTO Users(FullName, username, Pass,	Point)
+-- VALUES
+-- (N'LmaoLmaoLmao', N'Nhonnn', '1234567', '0'),
+-- (N'Bình 2 hòn', N'binhdz', '1234567', '1000'),
+-- (N'Tín succc', N'tingay', '1234567', '1000'),
+-- (N'Phương zũ', N'Cuctavang', '1234567', '1000'),
+-- (N'Tỷ Phú', N'ITBOY', '1234567', '1000'),
+-- (N'Nhờn', N'Lmao', '1234567', '0'),
+-- (N'Dương404', N'Duongg', '1234567', '0'),
+-- (N'Quản lý', N'Admin', '123','10000')
 
 --2
-INSERT INTO Cards(UserID, CardType, Stas, Balance)
-VALUES
-('2', N'VIP', N'Đang hoạt động', '200.000'),
-('1', N'Thành viên', N'Đã khóa', '0'),
-('4', N'VIP', N'Đã khóa', '0'),
-('3', N'VIP', N'Đang hoạt động', '200.000'),
-('6', N'Thành viên', N'Đang hoạt động', '200.000'),
-('5', N'VIP',  N'Đã khóa', '0'),
-('7', N'Thành viên', N'Đang hoạt động', '200.000');
+-- INSERT INTO Cards(UserID, CardType, Stas, Balance)
+-- VALUES
+-- ('2', N'VIP', N'Đang hoạt động', '200.000'),
+-- ('1', N'Thành viên', N'Đã khóa', '0'),
+-- ('4', N'VIP', N'Đã khóa', '0'),
+-- ('3', N'VIP', N'Đang hoạt động', '200.000'),
+-- ('6', N'Thành viên', N'Đang hoạt động', '200.000'),
+-- ('5', N'VIP',  N'Đã khóa', '0'),
+-- ('7', N'Thành viên', N'Đang hoạt động', '200.000');
 
 --Truy xuất tài khoản
 GO
@@ -197,7 +187,7 @@ CREATE PROC Go_Login
 @username NVARCHAR(100), @password NVARCHAR(100)
 AS
 BEGIN
-    SELECT * FROM Users WHERE Username = @username AND Pass = @password
+    SELECT * FROM Users WHERE Username = @username AND Password = @password
 END
 -- DROP PROC Go_Login;
 
@@ -268,42 +258,6 @@ BEGIN
 END
 GO
 -- DROP TRIGGER Up_Money;
-
--- Thêm Trigger cho việc đăng ký người dùng
-GO
-CREATE TRIGGER trg_InsertUserAfterRegister
-ON Register
-AFTER INSERT
-AS
-BEGIN
-    -- Kiểm tra nếu người dùng đăng ký chưa tồn tại trong bảng Users
-    IF NOT EXISTS (SELECT 1 FROM Users WHERE Username = (SELECT Username FROM inserted))
-    BEGIN
-        -- Chèn người dùng vào bảng Users
-        INSERT INTO Users (FullName, Username, Pass, CardID, Point)
-        SELECT FullName, Username, Pass, CardID, Point
-        FROM inserted;
-    END
-END;
--- DROP TRIGGER trg_InsertUserAfterRegister
-
--- Tạo Store Procedure để đăng ký người dùng
-GO
-CREATE PROC RegisterUser
-    @FullName NVARCHAR(100),
-    @Username VARCHAR(50),
-    @Pass VARCHAR(255),
-    @CardID INT = NULL,
-    @Point INT = 0
-AS
-BEGIN
-    -- Chèn người dùng vào bảng Register
-    INSERT INTO Register (FullName, Username, Pass, CardID, Point)
-    VALUES (@FullName, @Username, @Pass, @CardID, @Point);
-    
-    -- Thực hiện hành động sau khi đăng ký thành công (trigger sẽ tự động thêm người dùng vào bảng Users)
-END;
--- DROP PROC RegisterUser
 
 -- Trigger xử lý khi cập nhật điểm và loại thẻ
 GO
