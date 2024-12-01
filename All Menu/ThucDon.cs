@@ -10,10 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Do_anLaptrinhWinCK.All_Computer
 {
     public partial class ThucDon : UserControl
     {
+
         // Cờ đánh dấu cho các chức năng thêm, xóa, tìm, sửa, inds
         public bool them = false;
         public bool xoa = false;
@@ -30,6 +32,29 @@ namespace Do_anLaptrinhWinCK.All_Computer
             loadDuLieu();
             HienthiDuLieuDong(0);
             Default();
+            Setup();
+        }
+        private void Setup()
+        {
+            // Lấy username từ chuỗi infor
+            string username = frmMain.infor.Split(':').Last().Trim();
+            using (databaseDataContext db = new databaseDataContext())
+            {
+                // Tìm người dùng trong cơ sở dữ liệu
+                User user = db.Users.SingleOrDefault(p => p.Username == username);
+                if (user != null)
+                {
+                    if (user.Role == "Nhân viên")
+                    {
+                        PanelAdmin.Visible = false;
+                    }
+                    else if(user.Role == "Người dùng")
+                    {
+                        PanelAdmin.Visible = false;
+                        PanelNV.Visible = false;
+                    }
+                }
+            }
         }
         //Hàm load dữ liệu
         private void loadDuLieu()
@@ -330,6 +355,7 @@ namespace Do_anLaptrinhWinCK.All_Computer
         // Sử lý sự kiện nhấn nút mì
         private void btnMi_Click(object sender, EventArgs e)
         {
+
             loadDuLieuTheoCategory(4); // Mì
             loadPictureBoxesTheoCategory(4);
         }
@@ -391,6 +417,7 @@ namespace Do_anLaptrinhWinCK.All_Computer
         // Sử lý sự kiện nhấn nút tìm
         private void btnTim_Click(object sender, EventArgs e)
         {
+            
             Default();
             txtDongia.Enabled = true;
             txtMaloai.Enabled = true;

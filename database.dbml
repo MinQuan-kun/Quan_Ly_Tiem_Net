@@ -74,6 +74,7 @@
       <Column Name="Role" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Active" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="DataActive" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Randomkey" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="User_Bill" Member="Bills" ThisKey="UserID" OtherKey="UserID" Type="Bill" />
       <Association Name="User_Status" Member="Status" ThisKey="UserID" OtherKey="CurrentUserID" Type="Status" />
       <Association Name="Card_User" Member="Card" ThisKey="CardID" OtherKey="CardID" Type="Card" IsForeignKey="true" />

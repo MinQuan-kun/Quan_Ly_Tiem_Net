@@ -40,6 +40,7 @@ namespace Do_anLaptrinhWinCK
             UpdateLoginState();
             Default();
             Menu.Visible = false;
+            Account.Visible = false;
             btnMenu.PerformClick();
         }
 
@@ -125,9 +126,11 @@ namespace Do_anLaptrinhWinCK
                             btnChucnang.Enabled = true;
                             btnDanhmuc.Enabled = true;
                             btnTaikhoan.Enabled = false;
+                            
                         }
                         else
                         {
+                            // Khách hàng
                             btnChucnang.Enabled = true;
                             btnTaikhoan.Visible = false;
                             btnDanhmuc.Enabled = true;
@@ -141,7 +144,6 @@ namespace Do_anLaptrinhWinCK
                 btnDanhmuc.Enabled = false;
             }
         }
-
 
         //Hiện thị subMenu
         private void btnHethong_Click(object sender, EventArgs e)
@@ -160,12 +162,18 @@ namespace Do_anLaptrinhWinCK
         private void btnDangxuat_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (dialogResult == DialogResult.Yes)
             {
                 infor = "Bạn chưa đăng nhập!";
-                UpdateLoginState();
+                UpdateLoginState(); 
+                this.Hide();
+                frmMain mainnew = new frmMain();
+                mainnew.ShowDialog();
+                this.Close();
             }
         }
+
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -218,10 +226,10 @@ namespace Do_anLaptrinhWinCK
         {
             using (frmLogin loginForm = new frmLogin())
             {
-                loginForm.Owner = this; // Gắn Owner là form hiện tại
+                loginForm.Owner = this;
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
-                    UpdateLoginState(); // Cập nhật trạng thái giao diện
+                    UpdateLoginState();
                 }
             }
         }
@@ -229,6 +237,12 @@ namespace Do_anLaptrinhWinCK
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTaikhoan_Click(object sender, EventArgs e)
+        {
+            Account.Visible = true;
+            Account.BringToFront();
         }
     }
 }

@@ -95,9 +95,27 @@ namespace Do_anLaptrinhWinCK
                 User user = db.Users.SingleOrDefault(p => p.Username == _username);
                 if (user != null)
                 {
+                    // Kiểm tra trạng thái đã Active  
+                    if (user.Active == "Đã khóa")
+                    {
+                        DialogResult result = MessageBox.Show("Tài khoản chưa xác thực. Vui lòng kích hoạt tài khoản", "Thông báo", MessageBoxButtons.OK);
+
+                        if (result == DialogResult.OK)
+                        {
+                            this.Close(); // xóa frmLogin khi mở frmDangky
+                            frmDangky frmRes = new frmDangky();
+                            // Hiển thị form đăng ký
+                            frmRes.Show();
+                            // Cấu hình các panel trong frmDangky
+                            frmRes.Paneldk.Visible = false;
+                            frmRes.PanelXacthuc.Visible = true;
+                            frmRes.txtUsername.Text = user.Username;
+                            return;
+                        }
+                    }
                     // Kiểm tra mật khẩu đang lưu trong database
                     MD5 md5 = MD5.Create();
-                    byte[] inputBytes = Encoding.ASCII.GetBytes(_password + user.OTP);
+                    byte[] inputBytes = Encoding.ASCII.GetBytes(_password + user.Randomkey);
                     byte[] hashBytes = md5.ComputeHash(inputBytes);
                     if(user.Password == hashBytes)
                     {
@@ -118,17 +136,12 @@ namespace Do_anLaptrinhWinCK
                         }
                         this.DialogResult = DialogResult.OK;
                         this.Close();
-                    }
-                    else
-                    {
-                        lblerror.Visible = true;
-                        txtPassword.Focus();
-                    }    
+                    }   
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin không tồn tại!", "Thông báo", MessageBoxButtons.OK);
-                    txtUsername.Focus();
+                    lblerror.Visible = true;
+                    txtPassword.Focus();
                 }    
             }
         }

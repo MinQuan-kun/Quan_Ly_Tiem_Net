@@ -1342,6 +1342,8 @@ namespace Do_anLaptrinhWinCK
 		
 		private System.Nullable<System.DateTime> _DataActive;
 		
+		private string _Randomkey;
+		
 		private EntitySet<Bill> _Bills;
 		
 		private EntitySet<Status> _Status;
@@ -1376,6 +1378,8 @@ namespace Do_anLaptrinhWinCK
     partial void OnActiveChanged();
     partial void OnDataActiveChanging(System.Nullable<System.DateTime> value);
     partial void OnDataActiveChanged();
+    partial void OnRandomkeyChanging(string value);
+    partial void OnRandomkeyChanged();
     #endregion
 		
 		public User()
@@ -1626,6 +1630,26 @@ namespace Do_anLaptrinhWinCK
 					this._DataActive = value;
 					this.SendPropertyChanged("DataActive");
 					this.OnDataActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Randomkey", DbType="VarChar(50)")]
+		public string Randomkey
+		{
+			get
+			{
+				return this._Randomkey;
+			}
+			set
+			{
+				if ((this._Randomkey != value))
+				{
+					this.OnRandomkeyChanging(value);
+					this.SendPropertyChanging();
+					this._Randomkey = value;
+					this.SendPropertyChanged("Randomkey");
+					this.OnRandomkeyChanged();
 				}
 			}
 		}

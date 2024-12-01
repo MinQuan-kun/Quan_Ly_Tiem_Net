@@ -19,7 +19,25 @@ namespace Do_anLaptrinhWinCK.All_Customer
 
         private void Khachhang_Load(object sender, EventArgs e)
         {
-
+            loadDuLieu();
+        }
+        private void loadDuLieu()
+        {
+            databaseDataContext db = new databaseDataContext();
+            dgvUsers.DataSource = db.Users
+                .OrderBy(m => m.UserID)
+                .Select(m => new
+                {
+                    m.UserID,
+                    m.Password,
+                    m.Username,
+                    m.Role,
+                    m.CardID,
+                    m.Active,
+                    m.Email,
+                    m.OTP,
+                    m.Point
+                }).ToList();
         }
     }
 }

@@ -17,6 +17,7 @@ CREATE TABLE Users (
     Password VARBINARY(MAX) NOT NULL,
     Email VARCHAR(50),
     OTP VARCHAR(50),
+    RandomKey VARCHAR(50),
     OTPDatesend DATETIME,
     OTPDatecreate DATETIME,
     CardID INT,
