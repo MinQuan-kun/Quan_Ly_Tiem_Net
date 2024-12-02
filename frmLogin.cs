@@ -102,6 +102,7 @@ namespace Do_anLaptrinhWinCK
 
                         if (result == DialogResult.OK)
                         {
+                            this.Hide();
                             this.Close(); // xóa frmLogin khi mở frmDangky
                             frmDangky frmRes = new frmDangky();
                             // Hiển thị form đăng ký
@@ -145,10 +146,11 @@ namespace Do_anLaptrinhWinCK
                 }    
             }
         }
-
         private void LinkQuenmk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            this.Hide();
+            frmConfirm frm = new frmConfirm();  
+            frm.ShowDialog();
         }
     }
 }

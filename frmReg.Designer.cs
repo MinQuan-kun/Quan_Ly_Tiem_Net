@@ -31,6 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangky));
             this.panelScreen = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.PanelXacthuc = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnGuilai = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblOtp = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblUser = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnXacthuc = new Guna.UI2.WinForms.Guna2Button();
+            this.txtOTP = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.Paneldk = new Guna.UI2.WinForms.Guna2Panel();
             this.btnQuaylai = new Guna.UI2.WinForms.Guna2Button();
             this.lblDk = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -44,14 +52,6 @@
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUser = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.PanelXacthuc = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnGuilai = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblOtp = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblUser = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnXacthuc = new Guna.UI2.WinForms.Guna2Button();
-            this.txtOTP = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.btnminisize = new Guna.UI2.WinForms.Guna2Button();
             this.panelSystem = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -59,9 +59,9 @@
             this.lblHi = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panelScreen.SuspendLayout();
+            this.PanelXacthuc.SuspendLayout();
             this.Paneldk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            this.PanelXacthuc.SuspendLayout();
             this.panelSystem.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -77,6 +77,129 @@
             this.panelScreen.Name = "panelScreen";
             this.panelScreen.Size = new System.Drawing.Size(808, 540);
             this.panelScreen.TabIndex = 2;
+            // 
+            // PanelXacthuc
+            // 
+            this.PanelXacthuc.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PanelXacthuc.BackgroundImage = global::Do_anLaptrinhWinCK.Properties.Resources.Screenshot_2024_11_29_133411;
+            this.PanelXacthuc.Controls.Add(this.btnGuilai);
+            this.PanelXacthuc.Controls.Add(this.guna2HtmlLabel1);
+            this.PanelXacthuc.Controls.Add(this.lblOtp);
+            this.PanelXacthuc.Controls.Add(this.lblUser);
+            this.PanelXacthuc.Controls.Add(this.btnXacthuc);
+            this.PanelXacthuc.Controls.Add(this.txtOTP);
+            this.PanelXacthuc.Controls.Add(this.txtUsername);
+            this.PanelXacthuc.Location = new System.Drawing.Point(270, 62);
+            this.PanelXacthuc.Name = "PanelXacthuc";
+            this.PanelXacthuc.Size = new System.Drawing.Size(282, 380);
+            this.PanelXacthuc.TabIndex = 5;
+            this.PanelXacthuc.Visible = false;
+            // 
+            // btnGuilai
+            // 
+            this.btnGuilai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGuilai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGuilai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGuilai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGuilai.FillColor = System.Drawing.Color.White;
+            this.btnGuilai.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnGuilai.ForeColor = System.Drawing.Color.Black;
+            this.btnGuilai.Location = new System.Drawing.Point(15, 259);
+            this.btnGuilai.Name = "btnGuilai";
+            this.btnGuilai.Size = new System.Drawing.Size(108, 30);
+            this.btnGuilai.TabIndex = 17;
+            this.btnGuilai.Text = "Gửi lại OTP";
+            this.btnGuilai.Click += new System.EventHandler(this.btnGuilai_Click);
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(34, 49);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(196, 32);
+            this.guna2HtmlLabel1.TabIndex = 16;
+            this.guna2HtmlLabel1.Text = "Xác thực tài khoản";
+            // 
+            // lblOtp
+            // 
+            this.lblOtp.BackColor = System.Drawing.Color.Transparent;
+            this.lblOtp.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOtp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblOtp.Location = new System.Drawing.Point(34, 189);
+            this.lblOtp.Name = "lblOtp";
+            this.lblOtp.Size = new System.Drawing.Size(27, 19);
+            this.lblOtp.TabIndex = 15;
+            this.lblOtp.Text = "OTP";
+            // 
+            // lblUser
+            // 
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblUser.Location = new System.Drawing.Point(24, 121);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(62, 19);
+            this.lblUser.TabIndex = 7;
+            this.lblUser.Text = "Username";
+            // 
+            // btnXacthuc
+            // 
+            this.btnXacthuc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXacthuc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXacthuc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXacthuc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXacthuc.FillColor = System.Drawing.Color.White;
+            this.btnXacthuc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnXacthuc.ForeColor = System.Drawing.Color.Black;
+            this.btnXacthuc.Location = new System.Drawing.Point(163, 259);
+            this.btnXacthuc.Name = "btnXacthuc";
+            this.btnXacthuc.Size = new System.Drawing.Size(94, 30);
+            this.btnXacthuc.TabIndex = 1;
+            this.btnXacthuc.Text = "Xác thực";
+            this.btnXacthuc.Click += new System.EventHandler(this.btnXacthuc_Click);
+            // 
+            // txtOTP
+            // 
+            this.txtOTP.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtOTP.DefaultText = "";
+            this.txtOTP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtOTP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtOTP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtOTP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtOTP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtOTP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtOTP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtOTP.Location = new System.Drawing.Point(105, 189);
+            this.txtOTP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOTP.Name = "txtOTP";
+            this.txtOTP.PasswordChar = '*';
+            this.txtOTP.PlaceholderText = "";
+            this.txtOTP.SelectedText = "";
+            this.txtOTP.Size = new System.Drawing.Size(152, 25);
+            this.txtOTP.TabIndex = 6;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BorderColor = System.Drawing.Color.White;
+            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsername.DefaultText = "";
+            this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsername.Location = new System.Drawing.Point(105, 121);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.PasswordChar = '\0';
+            this.txtUsername.PlaceholderText = "";
+            this.txtUsername.SelectedText = "";
+            this.txtUsername.Size = new System.Drawing.Size(152, 25);
+            this.txtUsername.TabIndex = 3;
             // 
             // Paneldk
             // 
@@ -278,129 +401,6 @@
             this.guna2PictureBox2.TabIndex = 0;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // PanelXacthuc
-            // 
-            this.PanelXacthuc.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PanelXacthuc.BackgroundImage = global::Do_anLaptrinhWinCK.Properties.Resources.Screenshot_2024_11_29_133411;
-            this.PanelXacthuc.Controls.Add(this.btnGuilai);
-            this.PanelXacthuc.Controls.Add(this.guna2HtmlLabel1);
-            this.PanelXacthuc.Controls.Add(this.lblOtp);
-            this.PanelXacthuc.Controls.Add(this.lblUser);
-            this.PanelXacthuc.Controls.Add(this.btnXacthuc);
-            this.PanelXacthuc.Controls.Add(this.txtOTP);
-            this.PanelXacthuc.Controls.Add(this.txtUsername);
-            this.PanelXacthuc.Location = new System.Drawing.Point(270, 62);
-            this.PanelXacthuc.Name = "PanelXacthuc";
-            this.PanelXacthuc.Size = new System.Drawing.Size(282, 380);
-            this.PanelXacthuc.TabIndex = 5;
-            this.PanelXacthuc.Visible = false;
-            // 
-            // btnGuilai
-            // 
-            this.btnGuilai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGuilai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGuilai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGuilai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGuilai.FillColor = System.Drawing.Color.White;
-            this.btnGuilai.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnGuilai.ForeColor = System.Drawing.Color.Black;
-            this.btnGuilai.Location = new System.Drawing.Point(15, 259);
-            this.btnGuilai.Name = "btnGuilai";
-            this.btnGuilai.Size = new System.Drawing.Size(108, 30);
-            this.btnGuilai.TabIndex = 17;
-            this.btnGuilai.Text = "Gửi lại OTP";
-            this.btnGuilai.Click += new System.EventHandler(this.btnGuilai_Click);
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(34, 49);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(196, 32);
-            this.guna2HtmlLabel1.TabIndex = 16;
-            this.guna2HtmlLabel1.Text = "Xác thực tài khoản";
-            // 
-            // lblOtp
-            // 
-            this.lblOtp.BackColor = System.Drawing.Color.Transparent;
-            this.lblOtp.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOtp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblOtp.Location = new System.Drawing.Point(34, 189);
-            this.lblOtp.Name = "lblOtp";
-            this.lblOtp.Size = new System.Drawing.Size(27, 19);
-            this.lblOtp.TabIndex = 15;
-            this.lblOtp.Text = "OTP";
-            // 
-            // lblUser
-            // 
-            this.lblUser.BackColor = System.Drawing.Color.Transparent;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblUser.Location = new System.Drawing.Point(24, 121);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(62, 19);
-            this.lblUser.TabIndex = 7;
-            this.lblUser.Text = "Username";
-            // 
-            // btnXacthuc
-            // 
-            this.btnXacthuc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnXacthuc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnXacthuc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnXacthuc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnXacthuc.FillColor = System.Drawing.Color.White;
-            this.btnXacthuc.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnXacthuc.ForeColor = System.Drawing.Color.Black;
-            this.btnXacthuc.Location = new System.Drawing.Point(163, 259);
-            this.btnXacthuc.Name = "btnXacthuc";
-            this.btnXacthuc.Size = new System.Drawing.Size(94, 30);
-            this.btnXacthuc.TabIndex = 1;
-            this.btnXacthuc.Text = "Xác thực";
-            this.btnXacthuc.Click += new System.EventHandler(this.btnXacthuc_Click);
-            // 
-            // txtOTP
-            // 
-            this.txtOTP.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtOTP.DefaultText = "";
-            this.txtOTP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtOTP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtOTP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtOTP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtOTP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtOTP.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtOTP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtOTP.Location = new System.Drawing.Point(105, 189);
-            this.txtOTP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtOTP.Name = "txtOTP";
-            this.txtOTP.PasswordChar = '*';
-            this.txtOTP.PlaceholderText = "";
-            this.txtOTP.SelectedText = "";
-            this.txtOTP.Size = new System.Drawing.Size(152, 25);
-            this.txtOTP.TabIndex = 6;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.BorderColor = System.Drawing.Color.White;
-            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsername.DefaultText = "";
-            this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsername.Location = new System.Drawing.Point(105, 121);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.PasswordChar = '\0';
-            this.txtUsername.PlaceholderText = "";
-            this.txtUsername.SelectedText = "";
-            this.txtUsername.Size = new System.Drawing.Size(152, 25);
-            this.txtUsername.TabIndex = 3;
-            // 
             // guna2BorderlessForm1
             // 
             this.guna2BorderlessForm1.ContainerControl = this;
@@ -500,11 +500,11 @@
             this.Text = "Đăng ký";
             this.Load += new System.EventHandler(this.frmDangky_Load);
             this.panelScreen.ResumeLayout(false);
+            this.PanelXacthuc.ResumeLayout(false);
+            this.PanelXacthuc.PerformLayout();
             this.Paneldk.ResumeLayout(false);
             this.Paneldk.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            this.PanelXacthuc.ResumeLayout(false);
-            this.PanelXacthuc.PerformLayout();
             this.panelSystem.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();

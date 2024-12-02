@@ -41,6 +41,8 @@
             this.lblHi = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnInds = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -52,8 +54,7 @@
             this.cbActive = new System.Windows.Forms.ComboBox();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.btnXoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -177,7 +178,7 @@
             // 
             this.lblHi.BackColor = System.Drawing.Color.Transparent;
             this.lblHi.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHi.Location = new System.Drawing.Point(294, 3);
+            this.lblHi.Location = new System.Drawing.Point(314, 3);
             this.lblHi.Name = "lblHi";
             this.lblHi.Size = new System.Drawing.Size(192, 33);
             this.lblHi.TabIndex = 7;
@@ -209,8 +210,26 @@
             this.panel2.Size = new System.Drawing.Size(808, 93);
             this.panel2.TabIndex = 10;
             // 
+            // txtID
+            // 
+            this.txtID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(101, 51);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(75, 25);
+            this.txtID.TabIndex = 18;
+            // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(29, 58);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(45, 18);
+            this.guna2HtmlLabel4.TabIndex = 17;
+            this.guna2HtmlLabel4.Text = "UserID";
+            // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnXoa);
             this.panel4.Controls.Add(this.btnInds);
             this.panel4.Controls.Add(this.btnSua);
             this.panel4.Controls.Add(this.btnTim);
@@ -222,7 +241,7 @@
             // 
             // btnInds
             // 
-            this.btnInds.Location = new System.Drawing.Point(101, 26);
+            this.btnInds.Location = new System.Drawing.Point(28, 49);
             this.btnInds.Name = "btnInds";
             this.btnInds.Size = new System.Drawing.Size(75, 41);
             this.btnInds.TabIndex = 13;
@@ -232,7 +251,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(194, 26);
+            this.btnSua.Location = new System.Drawing.Point(159, 49);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 41);
             this.btnSua.TabIndex = 14;
@@ -242,7 +261,7 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(3, 26);
+            this.btnTim.Location = new System.Drawing.Point(28, 2);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 41);
             this.btnTim.TabIndex = 15;
@@ -270,7 +289,7 @@
             // guna2HtmlLabel2
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(216, 53);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(213, 58);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(40, 18);
             this.guna2HtmlLabel2.TabIndex = 6;
@@ -279,7 +298,7 @@
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(224, 8);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(221, 13);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(32, 18);
             this.guna2HtmlLabel1.TabIndex = 5;
@@ -292,7 +311,7 @@
             this.cbActive.Items.AddRange(new object[] {
             "Đang hoạt động",
             "Đã khóa"});
-            this.cbActive.Location = new System.Drawing.Point(262, 51);
+            this.cbActive.Location = new System.Drawing.Point(259, 56);
             this.cbActive.Name = "cbActive";
             this.cbActive.Size = new System.Drawing.Size(100, 25);
             this.cbActive.TabIndex = 4;
@@ -305,7 +324,7 @@
             "Admin",
             "Người dùng",
             "Nhân viên"});
-            this.cbRole.Location = new System.Drawing.Point(262, 6);
+            this.cbRole.Location = new System.Drawing.Point(259, 11);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(100, 25);
             this.cbRole.TabIndex = 2;
@@ -319,22 +338,15 @@
             this.panel3.Size = new System.Drawing.Size(808, 401);
             this.panel3.TabIndex = 11;
             // 
-            // guna2HtmlLabel4
+            // btnXoa
             // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(29, 58);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(45, 18);
-            this.guna2HtmlLabel4.TabIndex = 17;
-            this.guna2HtmlLabel4.Text = "UserID";
-            // 
-            // txtID
-            // 
-            this.txtID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(101, 51);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(75, 25);
-            this.txtID.TabIndex = 18;
+            this.btnXoa.Location = new System.Drawing.Point(159, 2);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 41);
+            this.btnXoa.TabIndex = 16;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // User
             // 
@@ -384,5 +396,6 @@
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.TextBox txtID;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private System.Windows.Forms.Button btnXoa;
     }
 }

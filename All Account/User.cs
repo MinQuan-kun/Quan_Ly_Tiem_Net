@@ -90,7 +90,6 @@ namespace Do_anLaptrinhWinCK.All_Customer
             }
             using (databaseDataContext db = new databaseDataContext())
             {
-                // Tìm người dùng theo ID
                 var existingUser = db.Users.SingleOrDefault(u => u.UserID == ID);
 
                 if (existingUser != null)
@@ -155,9 +154,44 @@ namespace Do_anLaptrinhWinCK.All_Customer
                 MessageBox.Show("Không tìm thấy kết quả!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int ID;
+            if (!int.TryParse(txtID.Text, out ID))
+            {
+                MessageBox.Show("Mã tài khoản không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtID.Focus();
+                return;
+            }
+            databaseDataContext db = new databaseDataContext();
+            var existingUser = db.Users.SingleOrDefault(u => u.UserID == ID);
+            if (existingUser != null)
+            {
+                if(existingUser.Role != "Admin")
+                {
+                    db.Users.DeleteOnSubmit(existingUser);
+                    db.SubmitChanges();
+                    loadDuLieu();
+                    MessageBox.Show("Xóa tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }    
+                else
+                {
+                    MessageBox.Show("Không thể xóa tài khoản admin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }    
+            }
+            else 
+            {
+                MessageBox.Show("Mã tài khoản không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtID.Focus();
+                return;
+            }
+        }
         private void btnInds_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

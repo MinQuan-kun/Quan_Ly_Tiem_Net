@@ -513,17 +513,9 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 else
                 {
                     db.Menus.DeleteOnSubmit(m);
-
-                    try
-                    {
-                        db.SubmitChanges();
-                        loadDuLieu();
-                        MessageBox.Show("Xóa món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Lỗi khi xóa món: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    db.SubmitChanges();
+                    loadDuLieu();
+                    MessageBox.Show("Xóa món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if(tim == true)

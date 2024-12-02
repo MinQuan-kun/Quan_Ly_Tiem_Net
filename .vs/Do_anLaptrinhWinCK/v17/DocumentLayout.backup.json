@@ -3,19 +3,31 @@
   "WorkspaceRootPath": "D:\\Visual Code\\Do_anLaptrinhWinCK\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\all account\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all account\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\frmrecovery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmrecovery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\frmreg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmreg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\frmrecovery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmrecovery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\all account\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all account\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|d:\\visual code\\do_anlaptrinhwinck\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|D:\\Visual Code\\Do_anLaptrinhWinCK\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -26,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "frmMain.cs [Design]",
               "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmMain.cs",
               "RelativeDocumentMoniker": "frmMain.cs",
@@ -63,41 +75,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Account\\User.cs",
-              "RelativeDocumentMoniker": "All Account\\User.cs",
-              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Account\\User.cs",
-              "RelativeToolTip": "All Account\\User.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAQwEAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:50:50.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ThucDon.cs",
               "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Menu\\ThucDon.cs",
               "RelativeDocumentMoniker": "All Menu\\ThucDon.cs",
               "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Menu\\ThucDon.cs",
               "RelativeToolTip": "All Menu\\ThucDon.cs",
-              "ViewState": "AgIAAD4CAAAAAAAAAAAAAFECAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAGsCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T17:07:20.632Z",
+              "WhenOpened": "2024-12-02T11:00:23.701Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "User.cs [Design]",
-              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Account\\User.cs",
-              "RelativeDocumentMoniker": "All Account\\User.cs",
-              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\All Account\\User.cs [Design]",
-              "RelativeToolTip": "All Account\\User.cs [Design]",
+              "DocumentIndex": 3,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs",
+              "RelativeToolTip": "frmLogin.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAUwEoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:27:03.834Z",
+              "WhenOpened": "2024-12-02T10:14:38.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmLogin.cs [Design]",
+              "RelativeToolTip": "frmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T10:14:36.597Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmRecovery.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmRecovery.cs",
+              "RelativeDocumentMoniker": "frmRecovery.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmRecovery.cs [Design]",
+              "RelativeToolTip": "frmRecovery.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T09:52:06.672Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmReg.cs",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmReg.cs",
+              "RelativeDocumentMoniker": "frmReg.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmReg.cs",
+              "RelativeToolTip": "frmReg.cs",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAwwG0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T10:04:48.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmRecovery.cs",
+              "DocumentMoniker": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmRecovery.cs",
+              "RelativeDocumentMoniker": "frmRecovery.cs",
+              "ToolTip": "D:\\Visual Code\\Do_anLaptrinhWinCK\\frmRecovery.cs",
+              "RelativeToolTip": "frmRecovery.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAqwHwAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T09:54:09.449Z",
+              "EditorCaption": ""
             }
           ]
         }
