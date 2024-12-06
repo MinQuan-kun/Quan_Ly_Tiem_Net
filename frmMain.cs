@@ -244,5 +244,10 @@ namespace Do_anLaptrinhWinCK
             Account.Visible = true;
             Account.BringToFront();
         }
+
+        private void btnDatmay_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -62,9 +62,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Account = new Do_anLaptrinhWinCK.All_Customer.User();
             this.Menu = new Do_anLaptrinhWinCK.All_Computer.ThucDon();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.subpanelHethong.SuspendLayout();
@@ -328,6 +328,7 @@
             this.btnDatmay.Text = "Đặt máy ";
             this.btnDatmay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDatmay.UseVisualStyleBackColor = false;
+            this.btnDatmay.Click += new System.EventHandler(this.btnDatmay_Click_1);
             // 
             // btnChucnang
             // 
@@ -375,7 +376,7 @@
             this.register});
             this.toolStrip2.Location = new System.Drawing.Point(6, 9);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(350, 31);
+            this.toolStrip2.Size = new System.Drawing.Size(350, 27);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "Bạn chưa đăng nhập";
             // 
@@ -383,14 +384,14 @@
             // 
             this.txtDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(111, 28);
+            this.txtDate.Size = new System.Drawing.Size(111, 24);
             this.txtDate.Text = "toolStripLabel1";
             // 
             // lblInfor
             // 
             this.lblInfor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfor.Name = "lblInfor";
-            this.lblInfor.Size = new System.Drawing.Size(149, 28);
+            this.lblInfor.Size = new System.Drawing.Size(149, 24);
             this.lblInfor.Text = "Bạn chưa đăng nhập!";
             // 
             // Logout
@@ -399,7 +400,7 @@
             this.Logout.Image = ((System.Drawing.Image)(resources.GetObject("Logout.Image")));
             this.Logout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(29, 28);
+            this.Logout.Size = new System.Drawing.Size(29, 24);
             this.Logout.Text = "Đăng xuất";
             this.Logout.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
@@ -409,7 +410,7 @@
             this.Login.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Import;
             this.Login.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(29, 28);
+            this.Login.Size = new System.Drawing.Size(29, 24);
             this.Login.Text = "Login";
             this.Login.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -419,7 +420,7 @@
             this.register.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Add_User_Male;
             this.register.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.register.Name = "register";
-            this.register.Size = new System.Drawing.Size(29, 28);
+            this.register.Size = new System.Drawing.Size(29, 24);
             this.register.Text = "register";
             this.register.Click += new System.EventHandler(this.btnDangky_Click);
             // 
@@ -516,10 +517,6 @@
             this.panel3.Size = new System.Drawing.Size(804, 664);
             this.panel3.TabIndex = 14;
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.TargetControl = this.panel3;
-            // 
             // Account
             // 
             this.Account.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -540,6 +537,10 @@
             this.Menu.Size = new System.Drawing.Size(804, 664);
             this.Menu.TabIndex = 0;
             this.Menu.Load += new System.EventHandler(this.Menu_Load);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this.panel3;
             // 
             // frmMain
             // 

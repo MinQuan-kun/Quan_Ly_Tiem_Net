@@ -15,3 +15,4 @@ D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.All_Computer.Thuc
 D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.All_Customer.User.resources
 D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.frmDangky.resources
 D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.frmConfirm.resources
+D:\Visual Code\Do_anLaptrinhWinCK\obj\Debug\Do_anLaptrinhWinCK.All_Computer.Computer.resources

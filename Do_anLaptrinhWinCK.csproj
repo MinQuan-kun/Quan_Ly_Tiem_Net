@@ -59,6 +59,12 @@
     <Compile Include="All Account\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="All Computer\Computer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Computer\Computer.Designer.cs">
+      <DependentUpon>Computer.cs</DependentUpon>
+    </Compile>
     <Compile Include="All Menu\ThucDon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="SendMail.cs" />
     <EmbeddedResource Include="All Account\User.resx">
       <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All Computer\Computer.resx">
+      <DependentUpon>Computer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All Menu\ThucDon.resx">
       <DependentUpon>ThucDon.cs</DependentUpon>

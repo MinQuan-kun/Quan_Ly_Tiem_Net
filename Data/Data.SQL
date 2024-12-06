@@ -16,10 +16,10 @@ CREATE TABLE Users (
     Username VARCHAR(50) NOT NULL UNIQUE,
     Password VARBINARY(MAX) NOT NULL,
     Email VARCHAR(50),
-    OTP VARCHAR(50),
-    RandomKey VARCHAR(50),
-    OTPDatesend DATETIME,
-    OTPDatecreate DATETIME,
+    -- OTP VARCHAR(50),
+    -- RandomKey VARCHAR(50),
+    -- OTPDatesend DATETIME,
+    -- OTPDatecreate DATETIME,
     CardID INT,
     Point DECIMAL(10, 2) DEFAULT 0.00, 
     Role NVARCHAR(500) CHECK (Role IN (N'Admin', N'Nhân viên', N'Người dùng')),
@@ -27,13 +27,13 @@ CREATE TABLE Users (
     DataActive DATETIME
 );
 -- Bảng thẻ
-CREATE TABLE Cards (
-    CardID INT PRIMARY KEY IDENTITY(1,1),  
-    UserID INT,
-    CardType NVARCHAR(500) CHECK (CardType IN (N'VIP', N'Thành viên')) NOT NULL,
-    Stas NVARCHAR(500) CHECK (Stas IN (N'đang hoạt động', N'Đã khóa')),
-    Balance DECIMAL(10, 2) DEFAULT 0.0
-);
+-- CREATE TABLE Cards (
+--     CardID INT PRIMARY KEY IDENTITY(1,1),  
+--     UserID INT,
+--     CardType NVARCHAR(500) CHECK (CardType IN (N'VIP', N'Thành viên')) NOT NULL,
+--     Stas NVARCHAR(500) CHECK (Stas IN (N'đang hoạt động', N'Đã khóa')),
+--     Balance DECIMAL(10, 2) DEFAULT 0.0
+-- );
 -- Bảng máy
 CREATE TABLE Computers (
     ComputerID INT PRIMARY KEY IDENTITY(1,1),  
